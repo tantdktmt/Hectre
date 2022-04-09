@@ -1,4 +1,4 @@
-package com.hectre.common
+package com.hectre.common.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

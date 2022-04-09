@@ -1,4 +1,4 @@
-package com.hectre.common
+package com.hectre.common.base
 
 import android.content.res.Resources
 import android.os.Build
@@ -16,20 +16,17 @@ import androidx.lifecycle.ViewModel
 
 abstract class BaseFragment<VM : ViewModel, T : ViewDataBinding> : Fragment(){
 
-    private var _viewModel: VM? = null
-    val viewModel get() = _viewModel!!
     private var _binding: T? = null
     val binding get() = _binding!!
 
     @LayoutRes
     protected abstract fun getLayoutId(): Int
 
-    // TODO can be removed & use ext function viewModels() instead
-    protected abstract fun getInstanceViewModel(): VM
+    protected abstract fun getAssociatedViewModel(): VM
 
-    protected abstract fun observeViewModels()
+    protected abstract fun observeDataChanged()
 
-    protected open fun initViews() {
+    protected open fun initView() {
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
@@ -55,11 +52,6 @@ abstract class BaseFragment<VM : ViewModel, T : ViewDataBinding> : Fragment(){
 
     protected open fun onInterceptBackPressed() = false
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        _viewModel = getInstanceViewModel()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -67,7 +59,7 @@ abstract class BaseFragment<VM : ViewModel, T : ViewDataBinding> : Fragment(){
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
         if (getBindingViewModelId() != Resources.ID_NULL) {
-            binding.setVariable(getBindingViewModelId(), viewModel)
+            binding.setVariable(getBindingViewModelId(), getAssociatedViewModel())
         }
         binding.lifecycleOwner = this
         binding.executePendingBindings()
@@ -77,8 +69,8 @@ abstract class BaseFragment<VM : ViewModel, T : ViewDataBinding> : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViews()
-        observeViewModels()
+        initView()
+        observeDataChanged()
     }
 
     override fun onDestroyView() {

@@ -1,4 +1,4 @@
-package com.hectre.common
+package com.hectre.common.base
 
 import android.os.Bundle
 import androidx.annotation.IdRes
@@ -10,45 +10,34 @@ import androidx.lifecycle.ViewModel
 
 abstract class BaseActivity<VM : ViewModel, T : ViewDataBinding> : AppCompatActivity() {
 
-    private var _viewModel: VM? = null
-    val viewModel get() = _viewModel!!
     private var _binding: T? = null
     val binding get() = _binding!!
 
     @LayoutRes
     protected abstract fun getLayoutId(): Int
 
-    // TODO can be removed & use ext function viewModels() instead
-    protected abstract fun getInstanceViewModel(): VM
+    protected abstract fun getAssociatedViewModel(): VM
 
-    protected abstract fun observeViewModels()
+    protected abstract fun observeDataChanged()
 
-    protected open fun initData() = Unit
-
-    protected open fun initViews() = Unit
+    protected open fun initView() = Unit
 
     @IdRes
-    open fun getContainerId(): Int {
-        return ID_NULL
-    }
+    open fun getContainerId() = ID_NULL
 
     @IdRes
-    open fun getBindingViewModelId(): Int {
-        return ID_NULL
-    }
+    open fun getBindingViewModelId() = ID_NULL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _viewModel = getInstanceViewModel()
         _binding = DataBindingUtil.setContentView(this, getLayoutId())
         if (getBindingViewModelId() != ID_NULL) {
-            binding.setVariable(getBindingViewModelId(), viewModel)
+            binding.setVariable(getBindingViewModelId(), getAssociatedViewModel())
         }
         binding.lifecycleOwner = this
         binding.executePendingBindings()
-        initData()
-        initViews()
-        observeViewModels()
+        initView()
+        observeDataChanged()
     }
 
     override fun onDestroy() {

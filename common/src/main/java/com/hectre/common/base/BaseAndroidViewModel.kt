@@ -1,4 +1,4 @@
-package com.hectre.common
+package com.hectre.common.base
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
