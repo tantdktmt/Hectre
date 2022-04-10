@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="SingleLine">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="SingleLine.Regular" />
+
+    <style name="SingleLine.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TitleWhite" parent="SingleLine.Bold">
+        <item name="android:textColor">@color/text_white_all</item>
+        <item name="android:textSize">@dimen/textsize_all_large</item>
+    </style>
+</resources>

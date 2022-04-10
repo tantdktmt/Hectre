@@ -6,6 +6,9 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.23697916666666666" />
+        <entry key="common/src/main/res/drawable/toolbar_arrow_back_white.xml" value="0.2085" />
+        <entry key="common/src/main/res/layout/base_toolbar_layout.xml" value="0.23697916666666666" />
+        <entry key="common/src/main/res/layout/toolbar_layout.xml" value="0.23697916666666666" />
         <entry key="timesheet/src/main/res/layout/fragment_job_list.xml" value="0.23697916666666666" />
       </map>
     </option>

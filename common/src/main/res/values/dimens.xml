@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Common -->
+    <dimen name="height_toolbar">@dimen/_46sdp</dimen>
+    <dimen name="textsize_all_large">@dimen/_15ssp</dimen>
+    <dimen name="margin_padding_all_normal">@dimen/_13sdp</dimen>
+    <dimen name="margin_padding_all_large">@dimen/_20sdp</dimen>
+    <!-- Common -->
+</resources>

@@ -39,6 +39,7 @@ android {
 dependencies {
     api(project(":config"))
     api(project(":extension"))
+    api(project(":network"))
     api(project(":utility"))
 
     api 'androidx.core:core-ktx:1.7.0'
