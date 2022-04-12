@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+
     <style name="SingleLine">
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
@@ -13,7 +14,14 @@
     </style>
 
     <style name="TitleWhite" parent="SingleLine.Bold">
-        <item name="android:textColor">@color/text_white_all</item>
+        <item name="android:textColor">@color/all_text_white</item>
         <item name="android:textSize">@dimen/textsize_all_large</item>
+    </style>
+
+    <style name="Button" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="android:textColor">@color/all_text_white</item>
+        <item name="android:background">@drawable/all_button_bg_red_rounded</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

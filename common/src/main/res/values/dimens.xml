@@ -8,5 +8,6 @@
     <dimen name="margin_padding_all_normal">@dimen/_13sdp</dimen>
     <dimen name="margin_padding_all_large">@dimen/_20sdp</dimen>
     <dimen name="height_button">@dimen/_40sdp</dimen>
+    <dimen name="corner_radius_button">@dimen/_4sdp</dimen>
     <!-- Common -->
 </resources>
