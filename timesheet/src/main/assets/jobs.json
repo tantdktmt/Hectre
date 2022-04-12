@@ -1,0 +1,49 @@
+{
+  "status": {
+    "code": "success",
+    "message": "Success"
+  },
+  "data": [
+    {
+      "id": 1,
+      "name": "Pruning",
+      "specific_name": "Canker Removal",
+      "staff_first_name": "Barco",
+      "staff_last_name": "",
+      "orchard": "Benji (V1394U)",
+      "block": "UB13",
+      "available_rows": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Pruning",
+      "specific_name": "Canker Removal",
+      "staff_first_name": "Henry",
+      "staff_last_name": "Pham",
+      "orchard": "Benji (V1394U)",
+      "block": "UB13",
+      "available_rows": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Thinning",
+      "specific_name": "Thinning",
+      "staff_first_name": "Darijan",
+      "staff_last_name": "",
+      "orchard": "Benji (V1394U)",
+      "block": "UB14",
+      "available_rows": [
+        3,
+        4,
+        5
+      ]
+    }
+  ]
+}

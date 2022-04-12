@@ -7,5 +7,6 @@
     <dimen name="textsize_all_large">@dimen/_15ssp</dimen>
     <dimen name="margin_padding_all_normal">@dimen/_13sdp</dimen>
     <dimen name="margin_padding_all_large">@dimen/_20sdp</dimen>
+    <dimen name="height_button">@dimen/_40sdp</dimen>
     <!-- Common -->
 </resources>

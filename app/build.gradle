@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -40,6 +41,10 @@ android {
 dependencies {
     implementation(project(":common"))
     implementation(project(":timesheet"))
+
+    implementation 'com.google.dagger:hilt-android:2.41'
+    implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
+    kapt 'com.google.dagger:hilt-compiler:2.41'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

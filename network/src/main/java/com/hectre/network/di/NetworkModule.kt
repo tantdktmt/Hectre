@@ -8,9 +8,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.CipherSuite
 import okhttp3.ConnectionSpec
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
+import okhttp3.TlsVersion
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -22,8 +24,6 @@ import javax.inject.Singleton
 object NetworkModule {
 
     private const val TIMEOUT = 60L
-    private const val MINIMUM_FETCH_INTERVAL = 30L
-    private const val MINIMUM_FETCH_INTERVAL_PROD = 300L
 
     @Provides
     @Singleton
@@ -46,20 +46,32 @@ object NetworkModule {
     }
 
     @Provides
+    @Singleton
+    fun provideConnectionSpecs(): ConnectionSpec {
+        return ConnectionSpec.Builder(ConnectionSpec.MODERN_TLS)
+            .tlsVersions(TlsVersion.TLS_1_2)
+            .cipherSuites(
+                CipherSuite.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
+                CipherSuite.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+                CipherSuite.TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+            )
+            .build()
+    }
+
+    @Provides
     @Suppress("LongParameterList")
     fun provideOkHttpClientBuilder(
         httpLoggingInterceptor: HttpLoggingInterceptor,
         dispatcher: Dispatcher,
         connectionSpec: ConnectionSpec
     ): OkHttpClient.Builder {
-        val httpClientBuilder = OkHttpClient().newBuilder()
+        return OkHttpClient().newBuilder()
             .dispatcher(dispatcher)
             .readTimeout(TIMEOUT, TimeUnit.SECONDS)
             .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
             .connectionSpecs(arrayListOf(connectionSpec, ConnectionSpec.CLEARTEXT))
             .addInterceptor(httpLoggingInterceptor)
-        return httpClientBuilder
     }
 
     @Provides
@@ -74,7 +86,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideStandardRetrofit(
+    fun provideRetrofit(
         gsonConverterFactory: GsonConverterFactory,
         okHttpClient: OkHttpClient
     ): Retrofit {
