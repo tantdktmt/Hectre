@@ -10,4 +10,6 @@
     <dimen name="timesheet_job_list_margin_horizontal">@dimen/_15sdp</dimen>
     <dimen name="timesheet_job_list_margin_top">@dimen/_15sdp</dimen>
     <dimen name="timesheet_item_staff_badge_size">@dimen/_40sdp</dimen>
+    <dimen name="timesheet_item_row_id_size">@dimen/_40sdp</dimen>
+    <dimen name="timesheet_row_dot_size">@dimen/_4sdp</dimen>
 </resources>

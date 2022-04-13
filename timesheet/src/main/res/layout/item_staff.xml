@@ -30,21 +30,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <FrameLayout
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="@dimen/timesheet_item_staff_badge_size"
                 android:layout_height="@dimen/timesheet_item_staff_badge_size"
-                android:layout_gravity="center_vertical"
-                android:backgroundBadge="@{item_data.badgeType}">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@{item_data.badgeText}"
-                    android:textColor="@color/all_text_white"
-                    android:textSize="@dimen/_16ssp"
-                    android:textStyle="bold" />
-            </FrameLayout>
+                android:backgroundBadge="@{item_data.badgeType}"
+                android:gravity="center"
+                android:text="@{item_data.badgeText}"
+                android:textColor="@color/all_text_white"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -238,5 +232,18 @@
                 android:textStyle="bold"
                 android:visibility="@{item_data.rateType == RateType.WAGES ? View.VISIBLE : View.GONE}" />
         </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_row_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_rate_type_action" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

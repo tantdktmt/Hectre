@@ -31,3 +31,16 @@ fun setRateTypeTextViewStyle(textView: TextView, selected: Boolean) {
         textView.typeface = Typeface.DEFAULT
     }
 }
+
+@BindingAdapter("android:rowIdTextStyle")
+fun setRowIdTextStyle(textView: TextView, assigned: Boolean) {
+    if (assigned) {
+        textView.setBackgroundResource(R.drawable.timesheet_row_id_assigned_bg)
+        textView.setTextColorExt(CommonR.color.all_text_white)
+        textView.typeface = Typeface.DEFAULT_BOLD
+    } else {
+        textView.setBackgroundResource(R.drawable.timesheet_row_id_bg)
+        textView.setTextColorExt(CommonR.color.all_black)
+        textView.typeface = Typeface.DEFAULT
+    }
+}

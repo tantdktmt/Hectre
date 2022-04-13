@@ -32,7 +32,7 @@ object Mapper {
                                         it.id,
                                         it.label,
                                         it.totalTrees,
-                                        it.treesCompletedByOther,
+                                        it.treesCompletedByOther ?: 0,
                                         it.otherStaffName,
                                         it.treesCompletedByStaff
                                     )
@@ -57,7 +57,7 @@ object Mapper {
                                         it.id,
                                         it.label,
                                         it.totalTrees,
-                                        it.treesCompletedByOther,
+                                        it.treesCompletedByOther ?: 0,
                                         it.otherStaffName,
                                         it.treesCompletedByStaff
                                     )

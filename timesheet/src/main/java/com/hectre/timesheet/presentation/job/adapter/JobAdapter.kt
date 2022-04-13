@@ -12,6 +12,7 @@ import com.hectre.timesheet.databinding.ItemStaffBinding
 import com.hectre.timesheet.presentation.model.BaseListModel
 import com.hectre.timesheet.presentation.model.HeaderModel
 import com.hectre.timesheet.presentation.model.StaffModel
+import com.hectre.utility.LogUtil
 
 class JobAdapter(
     private val onClickAddMaxTrees: () -> Unit,
@@ -92,6 +93,11 @@ class JobAdapter(
 
         fun bindData(item: StaffModel) {
             binding.setVariable(BR.item_data, item)
+            val adapter = RowIdAdapter {
+                LogUtil.d("Click on row $it.id")
+            }
+            binding.rvRowId.adapter = adapter
+            adapter.submitList(item.listRow)
             binding.executePendingBindings()
         }
     }
