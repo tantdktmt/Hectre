@@ -4,5 +4,5 @@
     <corners android:radius="@dimen/all_button_radius_small" />
     <stroke
         android:width="@dimen/_1sdp"
-        android:color="@color/all_red_dark" />
+        android:color="@color/all_gray_3" />
 </shape>

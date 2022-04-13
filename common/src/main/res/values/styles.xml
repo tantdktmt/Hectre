@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-
     <style name="SingleLine">
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
@@ -32,9 +31,10 @@
     </style>
 
     <style name="ItemHeaderWithBorderText">
-        <item name="android:textStyle">normal</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/textsize_all_header_2</item>
         <item name="android:textColor">@color/all_red_dark</item>
         <item name="android:background">@drawable/all_text_bg_red_stroke_rounded</item>
+        <item name="android:padding">@dimen/all_text_view_padding_small</item>
     </style>
 </resources>

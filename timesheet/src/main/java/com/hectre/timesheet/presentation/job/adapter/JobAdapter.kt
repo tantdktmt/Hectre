@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hectre.extension.setSafeOnClickListener
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.databinding.ItemHeaderBinding
+import com.hectre.timesheet.databinding.ItemStaffBinding
 import com.hectre.timesheet.presentation.model.BaseListModel
-import com.hectre.timesheet.presentation.model.ListHeaderModel
+import com.hectre.timesheet.presentation.model.HeaderModel
+import com.hectre.timesheet.presentation.model.StaffModel
 
 class JobAdapter(
     private val onClickAddMaxTrees: () -> Unit,
@@ -43,6 +45,14 @@ class JobAdapter(
                 )
                 HeaderViewHolder(dataBinding)
             }
+            BaseListModel.ViewType.STAFF -> {
+                val dataBinding = ItemStaffBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+                StaffViewHolder(dataBinding)
+            }
             else -> {
                 val dataBinding = ItemHeaderBinding.inflate(
                     LayoutInflater.from(parent.context),
@@ -56,14 +66,19 @@ class JobAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is HeaderViewHolder -> holder.bindData(getItem(position) as ListHeaderModel)
+            is HeaderViewHolder -> holder.bindData(getItem(position) as HeaderModel)
+            is StaffViewHolder -> holder.bindData(getItem(position) as StaffModel)
         }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return getItem(position).viewType
     }
 
     private inner class HeaderViewHolder(private val binding: ItemHeaderBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindData(item: ListHeaderModel) {
+        fun bindData(item: HeaderModel) {
             binding.setVariable(BR.item_data, item)
             binding.tvAddMaxTrees.setSafeOnClickListener {
                 onClickAddMaxTrees()
@@ -72,13 +87,12 @@ class JobAdapter(
         }
     }
 
-    object ViewType {
+    private inner class StaffViewHolder(private val binding: ItemStaffBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        const val UNDEFINED = -1
-        const val HEADER = 0
-        const val NORMAL_ITEM = 1
-        const val LAST_ITEM = 2
-        const val DIVIDER = 3
-        const val CONFIRM_BUTTON = 4
+        fun bindData(item: StaffModel) {
+            binding.setVariable(BR.item_data, item)
+            binding.executePendingBindings()
+        }
     }
 }

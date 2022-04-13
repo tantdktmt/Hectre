@@ -3,4 +3,13 @@
 <resources>
     <string name="timesheet_update_rate_volume_title">Update Rate &amp; Volume</string>
     <string name="timesheet_add_max_trees_text">ADD MAX TREES</string>
+    <string name="timesheet_orchard_text">Orchard</string>
+    <string name="timesheet_block_text">Block</string>
+    <string name="timesheet_rate_type_text">Rate Type</string>
+    <string name="timesheet_piece_rate_text">PIECE RATE</string>
+    <string name="timesheet_wages_text">WAGES</string>
+    <string name="timesheet_currency_symbol">$</string>
+    <string name="timesheet_per_hour_text">/hour</string>
+    <string name="timesheet_apply_to_all_text">APPLY TO ALL</string>
+    <string name="timesheet_rate_type_wages_description">%s will be paid by wages in this timesheet</string>
 </resources>

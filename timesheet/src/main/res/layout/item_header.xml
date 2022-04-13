@@ -6,7 +6,7 @@
 
         <variable
             name="item_data"
-            type="com.hectre.timesheet.presentation.model.ListHeaderModel" />
+            type="com.hectre.timesheet.presentation.model.HeaderModel" />
     </data>
 
     <LinearLayout

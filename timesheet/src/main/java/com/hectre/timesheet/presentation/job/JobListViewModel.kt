@@ -2,7 +2,7 @@ package com.hectre.timesheet.presentation.job
 
 import androidx.lifecycle.viewModelScope
 import com.hectre.common.base.BaseViewModel
-import com.hectre.timesheet.presentation.Mapper
+import com.hectre.timesheet.presentation.model.Mapper
 import com.hectre.timesheet.presentation.model.BaseListModel
 import com.hectre.timesheet.presentation.usecase.GetListJobUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,6 +1,6 @@
 package com.hectre.timesheet.presentation.model
 
-data class ListHeaderModel(
+data class HeaderModel(
     val jobId: Int?,
     val jobName: String?
 ) : BaseListModel.BaseListDataModel(ViewType.HEADER)

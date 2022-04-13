@@ -1,13 +1,8 @@
-package com.hectre.timesheet.presentation
+package com.hectre.timesheet.presentation.model
 
 import com.hectre.config.Constant
 import com.hectre.timesheet.domain.entity.JobEntity
 import com.hectre.timesheet.domain.entity.StaffEntity
-import com.hectre.timesheet.presentation.model.BaseListModel
-import com.hectre.timesheet.presentation.model.ListHeaderModel
-import com.hectre.timesheet.presentation.model.ListLastItemModel
-import com.hectre.timesheet.presentation.model.ListNormalItemModel
-import com.hectre.timesheet.presentation.model.Row
 
 object Mapper {
 
@@ -15,21 +10,22 @@ object Mapper {
         val listModel = mutableListOf<BaseListModel>()
         var listStaffEntity: List<StaffEntity>?
         for (i in listJobEntity.indices) {
-            listModel.add(ListHeaderModel(listJobEntity[i].jobId, listJobEntity[i].jobName))
             // TESTING
-            if (true) break
+            if (i > 0) break
+            listModel.add(HeaderModel(listJobEntity[i].jobId, listJobEntity[i].jobName))
             listStaffEntity = listJobEntity[i].listStaff
             listStaffEntity?.run {
                 for (j in this.indices) {
                     if (j < this.size - 1) {
                         listModel.add(
-                            ListNormalItemModel(
+                            StaffModel(
                                 listJobEntity[i].jobId,
                                 this[j].specificJobName,
                                 this[j].staffFirstName,
                                 this[j].staffLastName,
                                 this[j].orchard,
                                 this[j].block,
+                                RateType.PIECE_RATE,
                                 Constant.DEFAULT_PIECE_RATE,
                                 this[j].listRow?.map {
                                     Row(
@@ -42,16 +38,19 @@ object Mapper {
                                     )
                                 })
                         )
-                        listModel.add(BaseListModel.ListDividerModel)
+                        // TESTING
+//                        listModel.add(BaseListModel.ListDividerModel)
                     } else {
+                        if (true) break
                         listModel.add(
-                            ListLastItemModel(
+                            LastStaffModel(
                                 listJobEntity[i].jobId,
                                 this[j].specificJobName,
                                 this[j].staffFirstName,
                                 this[j].staffLastName,
                                 this[j].orchard,
                                 this[j].block,
+                                RateType.PIECE_RATE,
                                 Constant.DEFAULT_PIECE_RATE,
                                 this[j].listRow?.map {
                                     Row(

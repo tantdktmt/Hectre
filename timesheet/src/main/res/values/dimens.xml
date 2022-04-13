@@ -4,4 +4,10 @@
 
     <dimen name="padding_horizontal_job_item">@dimen/_20sdp</dimen>
     <dimen name="padding_vertical_job_header_item">@dimen/_15sdp</dimen>
+    <dimen name="timesheet_item_staff_padding_start">@dimen/_15sdp</dimen>
+    <dimen name="timesheet_item_staff_padding_end">@dimen/_13sdp</dimen>
+    <dimen name="timesheet_item_staff_padding_top">@dimen/_20sdp</dimen>
+    <dimen name="timesheet_job_list_margin_horizontal">@dimen/_15sdp</dimen>
+    <dimen name="timesheet_job_list_margin_top">@dimen/_15sdp</dimen>
+    <dimen name="timesheet_item_staff_badge_size">@dimen/_40sdp</dimen>
 </resources>

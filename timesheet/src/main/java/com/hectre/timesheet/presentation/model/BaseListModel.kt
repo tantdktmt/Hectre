@@ -12,8 +12,8 @@ sealed class BaseListModel(var viewType: Int) {
 
         const val UNDEFINED = -1
         const val HEADER = 0
-        const val NORMAL_ITEM = 1
-        const val LAST_ITEM = 2
+        const val STAFF = 1
+        const val LAST_STAFF = 2
         const val DIVIDER = 3
         const val CONFIRM_BUTTON = 4
     }

@@ -1,7 +1,15 @@
 package com.hectre.extension
 
+import android.content.Context
 import android.os.SystemClock
 import android.view.View
+import android.widget.TextView
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
+
+fun Context.getColorExt(@ColorRes id: Int) = ContextCompat.getColor(this, id)
+
+fun TextView.setTextColorExt(@ColorRes id: Int) = setTextColor(context.getColorExt(id))
 
 fun View.setSafeOnClickListener(onSafeClick: (View) -> Unit) {
     val safeClickListener = SafeClickListener {

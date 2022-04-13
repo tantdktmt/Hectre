@@ -6,16 +6,27 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.23697916666666666" />
+        <entry key="common/src/main/res/drawable/all_button_bg_gray_solid_rounded.xml" value="0.1885" />
         <entry key="common/src/main/res/drawable/all_button_bg_red_rounded.xml" value="0.2095" />
+        <entry key="common/src/main/res/drawable/all_button_bg_red_solid_rounded.xml" value="0.243" />
         <entry key="common/src/main/res/drawable/all_text_bg_red_stroke_rounded.xml" value="0.221" />
         <entry key="common/src/main/res/drawable/base_bg_black_40_rounded.xml" value="0.2065" />
         <entry key="common/src/main/res/drawable/toolbar_arrow_back_white.xml" value="0.2085" />
         <entry key="common/src/main/res/layout/base_toolbar_layout.xml" value="0.23697916666666666" />
         <entry key="common/src/main/res/layout/toolbar_layout.xml" value="0.23697916666666666" />
         <entry key="timesheet/src/main/res/drawable/timesheet_job_header_item_bg.xml" value="0.209" />
+        <entry key="timesheet/src/main/res/drawable/timesheet_last_staff_item_bg.xml" value="0.1975" />
+        <entry key="timesheet/src/main/res/drawable/timesheet_staff_badge_bg.xml" value="0.1975" />
+        <entry key="timesheet/src/main/res/drawable/timesheet_staff_badge_brown_bg.xml" value="0.1975" />
+        <entry key="timesheet/src/main/res/drawable/timesheet_staff_badge_green_bg.xml" value="0.1975" />
+        <entry key="timesheet/src/main/res/drawable/timesheet_staff_item_bg.xml" value="0.1975" />
+        <entry key="timesheet/src/main/res/drawable/timesheet_staff_item_rate_edittext_bg.xml" value="0.199" />
+        <entry key="timesheet/src/main/res/drawable/timesheet_staff_item_rate_type_button.xml" value="0.1885" />
+        <entry key="timesheet/src/main/res/drawable/timesheet_staff_item_rate_type_button_selected.xml" value="0.1885" />
         <entry key="timesheet/src/main/res/layout/fragment_job_list.xml" value="0.23697916666666666" />
         <entry key="timesheet/src/main/res/layout/item_button.xml" value="0.23697916666666666" />
         <entry key="timesheet/src/main/res/layout/item_header.xml" value="0.23697916666666666" />
+        <entry key="timesheet/src/main/res/layout/item_staff.xml" value="0.23697916666666666" />
       </map>
     </option>
   </component>

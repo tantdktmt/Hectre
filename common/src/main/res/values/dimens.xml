@@ -6,10 +6,13 @@
     <dimen name="height_toolbar">@dimen/_46sdp</dimen>
     <dimen name="textsize_all_large">@dimen/_15ssp</dimen>
     <dimen name="textsize_all_header">@dimen/_20ssp</dimen>
-    <dimen name="textsize_all_header_2">@dimen/_18ssp</dimen>
+    <dimen name="textsize_all_header_2">@dimen/_14ssp</dimen>
     <dimen name="margin_padding_all_normal">@dimen/_13sdp</dimen>
     <dimen name="margin_padding_all_large">@dimen/_20sdp</dimen>
     <dimen name="height_button">@dimen/_40sdp</dimen>
-    <dimen name="corner_radius_button">@dimen/_4sdp</dimen>
+    <dimen name="button_corner_radius_small">@dimen/_4sdp</dimen>
+    <dimen name="button_corner_radius_medium">@dimen/_9sdp</dimen>
+    <dimen name="all_button_radius_small">@dimen/_3sdp</dimen>
+    <dimen name="all_text_view_padding_small">@dimen/_7sdp</dimen>
     <!-- Common -->
 </resources>
