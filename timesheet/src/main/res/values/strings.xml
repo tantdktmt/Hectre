@@ -2,4 +2,5 @@
 
 <resources>
     <string name="timesheet_update_rate_volume_title">Update Rate &amp; Volume</string>
+    <string name="timesheet_add_max_trees_text">ADD MAX TREES</string>
 </resources>

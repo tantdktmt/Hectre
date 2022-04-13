@@ -1,28 +1,33 @@
 package com.hectre.timesheet.domain
 
 import com.hectre.timesheet.data.dto.JobDto
-import com.hectre.timesheet.data.dto.RowDto
 import com.hectre.timesheet.domain.entity.JobEntity
 import com.hectre.timesheet.domain.entity.RowEntity
+import com.hectre.timesheet.domain.entity.StaffEntity
 
 object Mapper {
 
     fun map(jobDto: JobDto) = JobEntity(
-        jobDto.id,
-        jobDto.name,
-        jobDto.specificName,
-        jobDto.staffFirstName,
-        jobDto.staffLastName,
-        jobDto.orchard,
-        jobDto.block,
-        jobDto.listRowId
-    )
-
-    fun map(rowDto: RowDto) = RowEntity(
-        rowDto.id,
-        rowDto.label,
-        rowDto.totalTrees,
-        rowDto.completedByOther,
-        rowDto.otherStaffName
+        jobDto.jobId,
+        jobDto.jobName,
+        jobDto.listStaff?.map {
+            StaffEntity(
+                it.id,
+                it.specificJobName,
+                it.staffFirstName,
+                it.staffLastName,
+                it.orchard,
+                it.block,
+                it.listRow?.map {
+                    RowEntity(
+                        it.id,
+                        it.label,
+                        it.totalTrees,
+                        it.treesCompletedByOther,
+                        it.otherStaffName,
+                        it.treesCompletedByStaff
+                    )
+                })
+        }
     )
 }

@@ -6,6 +6,7 @@ import com.hectre.common.base.BaseFragment
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.R
 import com.hectre.timesheet.databinding.FragmentJobListBinding
+import com.hectre.timesheet.presentation.job.adapter.JobAdapter
 import com.hectre.utility.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -13,9 +14,15 @@ import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class JobListFragment :
-    BaseFragment<JobListViewModel, FragmentJobListBinding>(){
+    BaseFragment<JobListViewModel, FragmentJobListBinding>() {
 
     private val viewModel by viewModels<JobListViewModel>()
+    private val adapter by lazy {
+        JobAdapter(
+            ::onClickAddMaxTrees,
+            ::onClickApplyToAll
+        )
+    }
 
     override fun getLayoutId() = R.layout.fragment_job_list
 
@@ -24,12 +31,14 @@ class JobListFragment :
     override fun getAssociatedViewModel() = viewModel
 
     override fun initView() {
+        binding.rvJob.adapter = adapter
     }
 
     override fun observeDataChanged() {
         with(viewModel) {
-            listJob.onEach {
+            listJobModel.onEach {
                 LogUtil.d("list job: ${it.size}")
+                adapter.submitList(it)
             }.launchIn(viewLifecycleOwner.lifecycleScope)
         }
     }
@@ -37,5 +46,11 @@ class JobListFragment :
     override fun onResume() {
         super.onResume()
         viewModel.loadData()
+    }
+
+    private fun onClickAddMaxTrees() {
+    }
+
+    private fun onClickApplyToAll() {
     }
 }

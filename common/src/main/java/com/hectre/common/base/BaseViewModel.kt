@@ -1,11 +1,13 @@
 package com.hectre.common.base
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 
 open class BaseViewModel : ViewModel() {
 
-    val loading: MutableLiveData<Boolean> = MutableLiveData(false)
+    val loading: MutableStateFlow<Boolean> by lazy {
+        MutableStateFlow(false)
+    }
 
     fun showLoading() {
         loading.value = true

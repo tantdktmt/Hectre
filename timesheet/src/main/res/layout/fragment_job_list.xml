@@ -25,38 +25,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_job"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fillViewport="true"
             android:overScrollMode="never"
             android:visibility="@{safeUnbox(view_model.loading) ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_job"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_confirm"
-                    style="@style/Button"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_button"
-                    android:layout_marginBottom="@dimen/margin_padding_all_normal"
-                    android:text="@string/all_confirm_button_text" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <ProgressBar
             android:id="@+id/progress_bar"

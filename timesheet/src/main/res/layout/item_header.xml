@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item_data"
+            type="com.hectre.timesheet.presentation.model.ListHeaderModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/timesheet_job_header_item_bg"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/padding_horizontal_job_item"
+        android:paddingVertical="@dimen/padding_vertical_job_header_item">
+
+        <TextView
+            style="@style/ItemHeaderText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{item_data.jobName}" />
+
+        <TextView
+            android:id="@+id/tv_add_max_trees"
+            style="@style/ItemHeaderWithBorderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/timesheet_add_max_trees_text" />
+    </LinearLayout>
+</layout>

@@ -4,6 +4,7 @@ data class RowEntity(
     val id: Int?,
     val label: String?,
     val totalTrees: Int?,
-    val completedByOther: Int?,
+    val treesCompletedByOther: Int?,
     val otherStaffName: String?,
+    val treesCompletedByStaff: Int?
 )

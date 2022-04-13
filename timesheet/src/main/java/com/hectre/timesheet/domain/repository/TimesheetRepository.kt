@@ -7,6 +7,4 @@ import com.hectre.timesheet.data.dto.RowDto
 interface TimesheetRepository {
 
     suspend fun getListJob(): ResponseDto<List<JobDto>>
-
-    suspend fun getListRow(): ResponseDto<List<RowDto>>
 }
