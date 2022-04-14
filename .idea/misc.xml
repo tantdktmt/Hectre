@@ -14,6 +14,8 @@
         <entry key="common/src/main/res/drawable/toolbar_arrow_back_white.xml" value="0.2085" />
         <entry key="common/src/main/res/layout/base_toolbar_layout.xml" value="0.23697916666666666" />
         <entry key="common/src/main/res/layout/toolbar_layout.xml" value="0.23697916666666666" />
+        <entry key="timesheet/src/main/res/drawable/job_list_divider_bg.xml" value="0.187" />
+        <entry key="timesheet/src/main/res/drawable/job_list_row_text_field_bg.xml" value="0.2285" />
         <entry key="timesheet/src/main/res/drawable/timesheet_dot_orange_bg.xml" value="0.1925" />
         <entry key="timesheet/src/main/res/drawable/timesheet_job_header_item_bg.xml" value="0.209" />
         <entry key="timesheet/src/main/res/drawable/timesheet_last_staff_item_bg.xml" value="0.1975" />
@@ -29,8 +31,12 @@
         <entry key="timesheet/src/main/res/drawable/timesheet_staff_item_rate_type_button_selected.xml" value="0.1885" />
         <entry key="timesheet/src/main/res/layout/fragment_job_list.xml" value="0.23697916666666666" />
         <entry key="timesheet/src/main/res/layout/item_button.xml" value="0.23697916666666666" />
+        <entry key="timesheet/src/main/res/layout/item_confirm_button.xml" value="0.23697916666666666" />
+        <entry key="timesheet/src/main/res/layout/item_divider.xml" value="0.23697916666666666" />
         <entry key="timesheet/src/main/res/layout/item_header.xml" value="0.23697916666666666" />
+        <entry key="timesheet/src/main/res/layout/item_last_staff.xml" value="0.23697916666666666" />
         <entry key="timesheet/src/main/res/layout/item_row_id.xml" value="0.23697916666666666" />
+        <entry key="timesheet/src/main/res/layout/item_row_info.xml" value="0.23697916666666666" />
         <entry key="timesheet/src/main/res/layout/item_staff.xml" value="0.23697916666666666" />
       </map>
     </option>

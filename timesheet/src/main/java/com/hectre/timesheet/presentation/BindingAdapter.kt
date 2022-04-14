@@ -4,6 +4,7 @@ import android.graphics.Typeface
 import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.hectre.extension.setSpannedText
 import com.hectre.extension.setTextColorExt
 import com.hectre.timesheet.R
 import com.hectre.timesheet.presentation.model.StaffModel
@@ -16,6 +17,15 @@ fun setBackgroundBadge(view: View, badgeType: Int) {
         StaffModel.BadgeType.GREEN -> view.setBackgroundResource(R.drawable.timesheet_staff_badge_green_bg)
         StaffModel.BadgeType.BROWN -> view.setBackgroundResource(R.drawable.timesheet_staff_badge_brown_bg)
         else -> Unit
+    }
+}
+
+@BindingAdapter("android:backgroundStaffItem")
+fun setBackgroundStaffItem(view: View, isLast: Boolean) {
+    if (isLast) {
+        view.setBackgroundResource(R.drawable.timesheet_last_staff_item_bg)
+    } else {
+        view.setBackgroundResource(R.drawable.timesheet_staff_item_bg)
     }
 }
 
@@ -43,4 +53,11 @@ fun setRowIdTextStyle(textView: TextView, assigned: Boolean) {
         textView.setTextColorExt(CommonR.color.all_black)
         textView.typeface = Typeface.DEFAULT
     }
+}
+
+@BindingAdapter("android:treesCompletedByStaff", "android:availableTrees")
+fun setTreeInfoText(textView: TextView, treesCompletedByStaff: Int, availableTrees: Int) {
+    val subText1 = "$treesCompletedByStaff"
+    val subText2 = " / $availableTrees"
+    textView.setSpannedText(subText1, subText2, CommonR.color.all_gray_2)
 }

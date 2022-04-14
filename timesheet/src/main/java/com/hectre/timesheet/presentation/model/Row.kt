@@ -3,9 +3,10 @@ package com.hectre.timesheet.presentation.model
 data class Row(
     val id: Int?,
     val label: String?,
-    val totalTrees: Int?,
+    val totalTrees: Int,
+    var availableTrees: Int,
     val treesCompletedByOther: Int,
     val otherStaffName: String?,
-    val treesCompletedByStaff: Int?,
+    val treesCompletedByStaff: Int,
     var assigned: Boolean = true
 )

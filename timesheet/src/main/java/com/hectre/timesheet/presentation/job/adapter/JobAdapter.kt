@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hectre.extension.setSafeOnClickListener
 import com.hectre.timesheet.BR
+import com.hectre.timesheet.databinding.ItemConfirmButtonBinding
+import com.hectre.timesheet.databinding.ItemDividerBinding
 import com.hectre.timesheet.databinding.ItemHeaderBinding
 import com.hectre.timesheet.databinding.ItemStaffBinding
 import com.hectre.timesheet.presentation.model.BaseListModel
@@ -54,6 +56,23 @@ class JobAdapter(
                 )
                 StaffViewHolder(dataBinding)
             }
+            BaseListModel.ViewType.DIVIDER -> {
+                val dataBinding = ItemDividerBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+                DividerViewHolder(dataBinding)
+            }
+
+            BaseListModel.ViewType.CONFIRM_BUTTON -> {
+                val dataBinding = ItemConfirmButtonBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+                ConfirmButtonViewHolder(dataBinding)
+            }
             else -> {
                 val dataBinding = ItemHeaderBinding.inflate(
                     LayoutInflater.from(parent.context),
@@ -93,12 +112,24 @@ class JobAdapter(
 
         fun bindData(item: StaffModel) {
             binding.setVariable(BR.item_data, item)
-            val adapter = RowIdAdapter {
+
+            val rowIdAdapter = RowIdAdapter {
                 LogUtil.d("Click on row $it.id")
             }
-            binding.rvRowId.adapter = adapter
-            adapter.submitList(item.listRow)
+            binding.rvRowId.adapter = rowIdAdapter
+            rowIdAdapter.submitList(item.listAvailableRow)
+
+            val rowInfoAdapter = RowInfoAdapter()
+            binding.rvRowInfo.adapter = rowInfoAdapter
+            rowInfoAdapter.submitList(item.listAssignedRow)
+
             binding.executePendingBindings()
         }
     }
+
+    private inner class DividerViewHolder(binding: ItemDividerBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+    private inner class ConfirmButtonViewHolder(binding: ItemConfirmButtonBinding) :
+        RecyclerView.ViewHolder(binding.root)
 }

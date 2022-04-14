@@ -9,7 +9,8 @@ data class StaffModel(
     val block: String?,
     var rateType: Int,
     var pieceRate: String,
-    val listRow: List<Row?>?
+    val isLast: Boolean,
+    val listAvailableRow: List<Row?>?
 ) : BaseListModel.BaseListDataModel(ViewType.STAFF) {
 
     val badgeText
@@ -20,6 +21,11 @@ data class StaffModel(
 
     val badgeType
         get() = if (!staffFirstName.isNullOrBlank()) (staffFirstName[0] - 'A') % 3 else BadgeType.UNKNOWN // Simulate defining badge type
+
+    val listAssignedRow
+        get() = listAvailableRow?.filter {
+            it?.assigned == true
+        }
 
     object BadgeType {
 

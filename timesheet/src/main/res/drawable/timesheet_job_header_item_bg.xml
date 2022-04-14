@@ -8,7 +8,7 @@
         <solid android:color="@color/timesheet_item_header_bg" />
 
         <corners
-            android:topLeftRadius="@dimen/_8sdp"
-            android:topRightRadius="@dimen/_8sdp" />
+            android:topLeftRadius="@dimen/button_corner_radius_small"
+            android:topRightRadius="@dimen/button_corner_radius_small" />
     </shape>
 </inset>

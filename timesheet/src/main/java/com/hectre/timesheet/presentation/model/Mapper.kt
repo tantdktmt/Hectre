@@ -10,8 +10,6 @@ object Mapper {
         val listModel = mutableListOf<BaseListModel>()
         var listStaffEntity: List<StaffEntity>?
         for (i in listJobEntity.indices) {
-            // TESTING
-            if (i > 0) break
             listModel.add(HeaderModel(listJobEntity[i].jobId, listJobEntity[i].jobName))
             listStaffEntity = listJobEntity[i].listStaff
             listStaffEntity?.run {
@@ -27,23 +25,23 @@ object Mapper {
                                 this[j].block,
                                 RateType.PIECE_RATE,
                                 Constant.DEFAULT_PIECE_RATE,
+                                false,
                                 this[j].listRow?.map {
                                     Row(
                                         it.id,
                                         it.label,
-                                        it.totalTrees,
+                                        it.totalTrees ?: 0,
+                                        it.totalTrees ?: 0,
                                         it.treesCompletedByOther ?: 0,
                                         it.otherStaffName,
-                                        it.treesCompletedByStaff
+                                        it.treesCompletedByStaff ?: 0
                                     )
                                 })
                         )
-                        // TESTING
-//                        listModel.add(BaseListModel.ListDividerModel)
+                        listModel.add(BaseListModel.DividerModel)
                     } else {
-                        if (true) break
                         listModel.add(
-                            LastStaffModel(
+                            StaffModel(
                                 listJobEntity[i].jobId,
                                 this[j].specificJobName,
                                 this[j].staffFirstName,
@@ -52,14 +50,16 @@ object Mapper {
                                 this[j].block,
                                 RateType.PIECE_RATE,
                                 Constant.DEFAULT_PIECE_RATE,
+                                true,
                                 this[j].listRow?.map {
                                     Row(
                                         it.id,
                                         it.label,
-                                        it.totalTrees,
+                                        it.totalTrees ?: 0,
+                                        it.totalTrees ?: 0,
                                         it.treesCompletedByOther ?: 0,
                                         it.otherStaffName,
-                                        it.treesCompletedByStaff
+                                        it.treesCompletedByStaff ?: 0
                                     )
                                 })
                         )
@@ -67,8 +67,7 @@ object Mapper {
                 }
             }
         }
-        // TESTING
-//        listModel.add(BaseListModel.ListConfirmButtonModel)
+        listModel.add(BaseListModel.ConfirmButtonModel)
         return listModel
     }
 }
