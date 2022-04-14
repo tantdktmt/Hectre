@@ -1,0 +1,864 @@
+{
+  "status": {
+    "code": "success",
+    "message": "Success"
+  },
+  "data": [
+    {
+      "job_id": 1,
+      "job_name": "Pruning",
+      "staffs": [
+        {
+          "id": 1,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Barco",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB13",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 4
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Henry",
+          "staff_last_name": "Pham",
+          "orchard": "Benji (V1394U)",
+          "block": "UB13",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 6
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Henry",
+          "staff_last_name": "Pham",
+          "orchard": "Benji (V1394U)",
+          "block": "UB13",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 6
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": 2,
+      "job_name": "Thinning",
+      "staffs": [
+        {
+          "id": 4,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": 2,
+      "job_name": "Thinning",
+      "staffs": [
+        {
+          "id": 4,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": 2,
+      "job_name": "Thinning",
+      "staffs": [
+        {
+          "id": 4,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": 2,
+      "job_name": "Thinning",
+      "staffs": [
+        {
+          "id": 4,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": 2,
+      "job_name": "Thinning",
+      "staffs": [
+        {
+          "id": 4,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": 2,
+      "job_name": "Thinning",
+      "staffs": [
+        {
+          "id": 4,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": 2,
+      "job_name": "Thinning",
+      "staffs": [
+        {
+          "id": 4,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "specific_job_name": "Canker Removal",
+          "staff_first_name": "Darijan",
+          "staff_last_name": "",
+          "orchard": "Benji (V1394U)",
+          "block": "UB14",
+          "available_rows": [
+            {
+              "id": 3,
+              "label": "Trees for row 3",
+              "total_trees": 400,
+              "trees_completed_by_other": 200,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 7
+            },
+            {
+              "id": 4,
+              "label": "Trees for row 4",
+              "total_trees": 556,
+              "trees_completed_by_other": 250,
+              "other_staff_name": "Yi Wan",
+              "trees_completed_by_staff": 2
+            },
+            {
+              "id": 5,
+              "label": "Trees for row 5",
+              "total_trees": 270,
+              "trees_completed_by_other": 100,
+              "other_staff_name": "Elizabeth Jargrave",
+              "trees_completed_by_staff": 20
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

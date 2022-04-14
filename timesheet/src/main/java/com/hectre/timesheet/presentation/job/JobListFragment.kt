@@ -2,6 +2,7 @@ package com.hectre.timesheet.presentation.job
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hectre.common.base.BaseFragment
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.R
@@ -32,6 +33,11 @@ class JobListFragment :
 
     override fun initView() {
         binding.rvJob.apply {
+            val layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false).apply {
+                    initialPrefetchItemCount = 2
+                }
+            setLayoutManager(layoutManager)
             setHasFixedSize(true)
             adapter = jobAdapter
         }
@@ -41,7 +47,9 @@ class JobListFragment :
         with(viewModel) {
             listJobModel.onEach {
                 LogUtil.d("list job: ${it.size}")
-                jobAdapter.submitList(it)
+                if (it.isNotEmpty()) {
+                    jobAdapter.submitList(it)
+                }
             }.launchIn(viewLifecycleOwner.lifecycleScope)
         }
     }

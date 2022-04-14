@@ -11,7 +11,7 @@ import com.hectre.timesheet.databinding.ItemRowIdBinding
 import com.hectre.timesheet.presentation.model.Row
 
 class RowIdAdapter(
-    private val onClickItem: (Row) -> Unit
+    private val onClickItem: (Row, RowIdAdapter) -> Unit
 ) : ListAdapter<Row, RowIdAdapter.ViewHolder>(itemDiff) {
 
     companion object {
@@ -21,13 +21,12 @@ class RowIdAdapter(
             override fun areItemsTheSame(
                 oldItem: Row,
                 newItem: Row
-            ) = oldItem === newItem // CHECK AGAIN
+            ) = oldItem.id == newItem.id
 
             override fun areContentsTheSame(
                 oldItem: Row,
                 newItem: Row
-            ): Boolean =
-                oldItem == newItem
+            ) = oldItem == newItem
         }
     }
 
@@ -51,7 +50,7 @@ class RowIdAdapter(
         fun bindData(item: Row) {
             binding.setVariable(BR.item_data, item)
             binding.root.setSafeOnClickListener {
-                onClickItem(item)
+                onClickItem(item, this@RowIdAdapter)
             }
             binding.executePendingBindings()
         }

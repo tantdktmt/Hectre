@@ -13,13 +13,19 @@ data class StaffModel(
     var rateType: Int,
     var pieceRate: String,
     val isLast: Boolean,
-    val listAvailableRow: List<Row?>?
+    var listAvailableRow: List<Row>?
 ) : BaseListModel.BaseListDataModel(ViewType.STAFF) {
 
     val listAssignedRow
         get() = listAvailableRow?.filter {
-            it?.assigned == true
+            it.assigned
         }
+
+    fun updateListAvailableRow(updatedRow: Row) {
+        listAvailableRow = listAvailableRow?.map {
+            if (it.id == updatedRow.id) it.copy(assigned = !it.assigned) else it.copy()
+        }
+    }
 
     object BadgeType {
 

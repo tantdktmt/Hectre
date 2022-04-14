@@ -3,6 +3,7 @@ package com.hectre.timesheet.presentation.job.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hectre.extension.setSafeOnClickListener
@@ -41,45 +42,63 @@ class JobAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             BaseListModel.ViewType.JOB_HEADER -> {
-                val dataBinding = ItemJobHeaderBinding.inflate(
+                val binding = ItemJobHeaderBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
-                JobHeaderViewHolder(dataBinding)
+                JobHeaderViewHolder(binding)
             }
             BaseListModel.ViewType.STAFF -> {
-                val dataBinding = ItemStaffBinding.inflate(
+                val binding = ItemStaffBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
-                StaffViewHolder(dataBinding)
+                val rowIdLayoutManager = LinearLayoutManager(
+                    parent.context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                ).apply {
+                    initialPrefetchItemCount = 8
+                }
+                binding.rvRowId.apply {
+                    layoutManager = rowIdLayoutManager
+                    setHasFixedSize(true)
+                }
+                val rowInfoLayoutManager =
+                    LinearLayoutManager(parent.context, LinearLayoutManager.VERTICAL, false).apply {
+                        initialPrefetchItemCount = 5
+                    }
+                binding.rvRowInfo.apply {
+                    layoutManager = rowInfoLayoutManager
+                }
+                StaffViewHolder(binding)
             }
             BaseListModel.ViewType.DIVIDER -> {
-                val dataBinding = ItemDividerBinding.inflate(
+                val binding = ItemDividerBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
-                DividerViewHolder(dataBinding)
+                DividerViewHolder(binding)
             }
 
             BaseListModel.ViewType.CONFIRM_BUTTON -> {
-                val dataBinding = ItemConfirmButtonBinding.inflate(
+                val binding = ItemConfirmButtonBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
-                ConfirmButtonViewHolder(dataBinding)
+                ConfirmButtonViewHolder(binding)
             }
             else -> {
-                val dataBinding = ItemJobHeaderBinding.inflate(
+                val binding = ItemJobHeaderBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
-                JobHeaderViewHolder(dataBinding)
+                JobHeaderViewHolder(binding)
             }
         }
     }
@@ -113,18 +132,18 @@ class JobAdapter(
         fun bindData(item: StaffModel) {
             binding.setVariable(BR.item_data, item)
 
-            val rowIdAdapter = RowIdAdapter {
-                LogUtil.d("Click on row $it.id")
-            }
-            binding.rvRowId.apply {
-                setHasFixedSize(true)
-                adapter = rowIdAdapter
-            }
-            rowIdAdapter.submitList(item.listAvailableRow)
-
             val rowInfoAdapter = RowInfoAdapter()
             binding.rvRowInfo.adapter = rowInfoAdapter
             rowInfoAdapter.submitList(item.listAssignedRow)
+
+            val rowIdAdapter = RowIdAdapter { row, adapter ->
+                LogUtil.d("Click on row $row.id")
+                item.updateListAvailableRow(row)
+                adapter.submitList(item.listAvailableRow)
+                rowInfoAdapter.submitList(item.listAssignedRow)
+            }
+            binding.rvRowId.adapter = rowIdAdapter
+            rowIdAdapter.submitList(item.listAvailableRow)
 
             binding.executePendingBindings()
         }
