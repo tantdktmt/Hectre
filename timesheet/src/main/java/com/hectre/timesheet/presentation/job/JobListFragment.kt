@@ -17,7 +17,7 @@ class JobListFragment :
     BaseFragment<JobListViewModel, FragmentJobListBinding>() {
 
     private val viewModel by viewModels<JobListViewModel>()
-    private val adapter by lazy {
+    private val jobAdapter by lazy {
         JobAdapter(
             ::onClickAddMaxTrees,
             ::onClickApplyToAll
@@ -31,14 +31,17 @@ class JobListFragment :
     override fun getAssociatedViewModel() = viewModel
 
     override fun initView() {
-        binding.rvJob.adapter = adapter
+        binding.rvJob.apply {
+            setHasFixedSize(true)
+            adapter = jobAdapter
+        }
     }
 
     override fun observeDataChanged() {
         with(viewModel) {
             listJobModel.onEach {
                 LogUtil.d("list job: ${it.size}")
-                adapter.submitList(it)
+                jobAdapter.submitList(it)
             }.launchIn(viewLifecycleOwner.lifecycleScope)
         }
     }

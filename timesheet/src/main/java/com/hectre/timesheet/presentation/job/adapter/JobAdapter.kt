@@ -9,10 +9,10 @@ import com.hectre.extension.setSafeOnClickListener
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.databinding.ItemConfirmButtonBinding
 import com.hectre.timesheet.databinding.ItemDividerBinding
-import com.hectre.timesheet.databinding.ItemHeaderBinding
+import com.hectre.timesheet.databinding.ItemJobHeaderBinding
 import com.hectre.timesheet.databinding.ItemStaffBinding
 import com.hectre.timesheet.presentation.model.BaseListModel
-import com.hectre.timesheet.presentation.model.HeaderModel
+import com.hectre.timesheet.presentation.model.JobHeaderModel
 import com.hectre.timesheet.presentation.model.StaffModel
 import com.hectre.utility.LogUtil
 
@@ -40,13 +40,13 @@ class JobAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            BaseListModel.ViewType.HEADER -> {
-                val dataBinding = ItemHeaderBinding.inflate(
+            BaseListModel.ViewType.JOB_HEADER -> {
+                val dataBinding = ItemJobHeaderBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
-                HeaderViewHolder(dataBinding)
+                JobHeaderViewHolder(dataBinding)
             }
             BaseListModel.ViewType.STAFF -> {
                 val dataBinding = ItemStaffBinding.inflate(
@@ -74,19 +74,19 @@ class JobAdapter(
                 ConfirmButtonViewHolder(dataBinding)
             }
             else -> {
-                val dataBinding = ItemHeaderBinding.inflate(
+                val dataBinding = ItemJobHeaderBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
-                HeaderViewHolder(dataBinding)
+                JobHeaderViewHolder(dataBinding)
             }
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is HeaderViewHolder -> holder.bindData(getItem(position) as HeaderModel)
+            is JobHeaderViewHolder -> holder.bindData(getItem(position) as JobHeaderModel)
             is StaffViewHolder -> holder.bindData(getItem(position) as StaffModel)
         }
     }
@@ -95,10 +95,10 @@ class JobAdapter(
         return getItem(position).viewType
     }
 
-    private inner class HeaderViewHolder(private val binding: ItemHeaderBinding) :
+    private inner class JobHeaderViewHolder(private val binding: ItemJobHeaderBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindData(item: HeaderModel) {
+        fun bindData(item: JobHeaderModel) {
             binding.setVariable(BR.item_data, item)
             binding.tvAddMaxTrees.setSafeOnClickListener {
                 onClickAddMaxTrees()
@@ -116,7 +116,10 @@ class JobAdapter(
             val rowIdAdapter = RowIdAdapter {
                 LogUtil.d("Click on row $it.id")
             }
-            binding.rvRowId.adapter = rowIdAdapter
+            binding.rvRowId.apply {
+                setHasFixedSize(true)
+                adapter = rowIdAdapter
+            }
             rowIdAdapter.submitList(item.listAvailableRow)
 
             val rowInfoAdapter = RowInfoAdapter()

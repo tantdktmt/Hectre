@@ -4,13 +4,13 @@ import com.hectre.config.Constant
 import com.hectre.timesheet.domain.entity.JobEntity
 import com.hectre.timesheet.domain.entity.StaffEntity
 
-object Mapper {
+object ModelUtil {
 
     fun buildListModel(listJobEntity: List<JobEntity>): List<BaseListModel> {
         val listModel = mutableListOf<BaseListModel>()
         var listStaffEntity: List<StaffEntity>?
         for (i in listJobEntity.indices) {
-            listModel.add(HeaderModel(listJobEntity[i].jobId, listJobEntity[i].jobName))
+            listModel.add(JobHeaderModel(listJobEntity[i].jobId, listJobEntity[i].jobName))
             listStaffEntity = listJobEntity[i].listStaff
             listStaffEntity?.run {
                 for (j in this.indices) {
@@ -21,6 +21,15 @@ object Mapper {
                                 this[j].specificJobName,
                                 this[j].staffFirstName,
                                 this[j].staffLastName,
+                                generateStaffFullName(
+                                    this[j].staffFirstName,
+                                    this[j].staffLastName
+                                ),
+                                generateStaffBadgeText(
+                                    this[j].staffFirstName,
+                                    this[j].staffLastName
+                                ),
+                                generateStaffBadgeType(this[j].staffFirstName),
                                 this[j].orchard,
                                 this[j].block,
                                 RateType.PIECE_RATE,
@@ -46,6 +55,15 @@ object Mapper {
                                 this[j].specificJobName,
                                 this[j].staffFirstName,
                                 this[j].staffLastName,
+                                generateStaffFullName(
+                                    this[j].staffFirstName,
+                                    this[j].staffLastName
+                                ),
+                                generateStaffBadgeText(
+                                    this[j].staffFirstName,
+                                    this[j].staffLastName
+                                ),
+                                generateStaffBadgeType(this[j].staffFirstName),
                                 this[j].orchard,
                                 this[j].block,
                                 RateType.PIECE_RATE,
@@ -69,5 +87,17 @@ object Mapper {
         }
         listModel.add(BaseListModel.ConfirmButtonModel)
         return listModel
+    }
+
+    private fun generateStaffFullName(staffFirstName: String?, staffLastName: String?): String {
+        return staffFirstName ?: "" + if (!staffLastName.isNullOrBlank()) " $staffLastName" else ""
+    }
+
+    private fun generateStaffBadgeText(staffFirstName: String?, staffLastName: String?): String {
+        return if (!staffFirstName.isNullOrBlank()) "${staffFirstName[0]}" else "" + if (!staffLastName.isNullOrBlank()) " ${staffLastName[0]}" else ""
+    }
+
+    private fun generateStaffBadgeType(staffFirstName: String?): Int {
+        return if (!staffFirstName.isNullOrBlank()) (staffFirstName[0] - 'A') % 3 else StaffModel.BadgeType.UNKNOWN // Simulate defining badge type
     }
 }

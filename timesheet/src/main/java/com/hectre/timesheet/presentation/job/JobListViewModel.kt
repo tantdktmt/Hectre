@@ -2,7 +2,7 @@ package com.hectre.timesheet.presentation.job
 
 import androidx.lifecycle.viewModelScope
 import com.hectre.common.base.BaseViewModel
-import com.hectre.timesheet.presentation.model.Mapper
+import com.hectre.timesheet.presentation.model.ModelUtil
 import com.hectre.timesheet.presentation.model.BaseListModel
 import com.hectre.timesheet.presentation.usecase.GetListJobUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,7 +25,7 @@ class JobListViewModel @Inject constructor(
         viewModelScope.launch {
             showLoading()
             getListJobUseCase()?.let {
-                _listJobModel.value = Mapper.buildListModel(it)
+                _listJobModel.value = ModelUtil.buildListModel(it)
             }
             hideLoading()
         }
