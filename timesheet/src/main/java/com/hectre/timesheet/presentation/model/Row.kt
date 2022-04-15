@@ -10,3 +10,17 @@ data class Row(
     val treesCompletedByStaff: Int,
     var assigned: Boolean = true
 )
+
+fun List<Row>.containsRowExt(row: Row): Boolean {
+    forEach {
+        if (it.id == row.id) return true
+    }
+    return false
+}
+
+fun List<Row>.containsRowWithId(id: Int?): Boolean {
+    forEach {
+        if (it.id == id) return true
+    }
+    return false
+}

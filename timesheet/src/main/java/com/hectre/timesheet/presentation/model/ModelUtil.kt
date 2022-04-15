@@ -18,6 +18,7 @@ object ModelUtil {
                         listModel.add(
                             StaffModel(
                                 listJobEntity[i].jobId,
+                                this[j].id,
                                 this[j].specificJobName,
                                 this[j].staffFirstName,
                                 this[j].staffLastName,
@@ -52,6 +53,7 @@ object ModelUtil {
                         listModel.add(
                             StaffModel(
                                 listJobEntity[i].jobId,
+                                this[j].id,
                                 this[j].specificJobName,
                                 this[j].staffFirstName,
                                 this[j].staffLastName,

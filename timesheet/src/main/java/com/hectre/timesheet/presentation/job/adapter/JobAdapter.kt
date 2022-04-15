@@ -18,7 +18,7 @@ import com.hectre.timesheet.presentation.model.StaffModel
 import com.hectre.utility.LogUtil
 
 class JobAdapter(
-    private val onClickAddMaxTrees: () -> Unit,
+    private val onClickAddMaxTrees: (Int?) -> Unit,
     private val onClickApplyToAll: () -> Unit
 ) : ListAdapter<BaseListModel, RecyclerView.ViewHolder>(itemDiff) {
 
@@ -29,13 +29,26 @@ class JobAdapter(
             override fun areItemsTheSame(
                 oldItem: BaseListModel,
                 newItem: BaseListModel
-            ) = oldItem === newItem // CHECK AGAIN
+            ): Boolean {
+                // TESTING
+                val itemsSame = if (oldItem is StaffModel && newItem is StaffModel) {
+                    oldItem.staffId == newItem.staffId
+                } else true
+                LogUtil.d("Old ${oldItem.hashCode()}, new ${newItem.hashCode()}, itemsSame = $itemsSame")
+                return itemsSame
+            }
 
             override fun areContentsTheSame(
                 oldItem: BaseListModel,
                 newItem: BaseListModel
-            ): Boolean =
-                oldItem == newItem
+            ): Boolean {
+                // TESTING
+                val contentsSame = if (oldItem is StaffModel && newItem is StaffModel) {
+                    oldItem == newItem
+                } else true
+                LogUtil.d("Old ${oldItem.hashCode()}, new ${newItem.hashCode()}, contents = $contentsSame")
+                return contentsSame
+            }
         }
     }
 
@@ -120,7 +133,7 @@ class JobAdapter(
         fun bindData(item: JobHeaderModel) {
             binding.setVariable(BR.item_data, item)
             binding.tvAddMaxTrees.setSafeOnClickListener {
-                onClickAddMaxTrees()
+                onClickAddMaxTrees(item.jobId)
             }
             binding.executePendingBindings()
         }
