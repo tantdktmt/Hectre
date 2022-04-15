@@ -2,14 +2,18 @@
 
 <resources>
 
-    <dimen name="padding_horizontal_job_item">@dimen/_20sdp</dimen>
-    <dimen name="padding_vertical_job_header_item">@dimen/_15sdp</dimen>
-    <dimen name="timesheet_item_staff_padding_start">@dimen/_15sdp</dimen>
-    <dimen name="timesheet_item_staff_padding_end">@dimen/_13sdp</dimen>
-    <dimen name="timesheet_item_staff_padding_top">@dimen/_15sdp</dimen>
-    <dimen name="timesheet_job_list_margin_horizontal">@dimen/_15sdp</dimen>
-    <dimen name="timesheet_job_list_margin_top">@dimen/_15sdp</dimen>
-    <dimen name="timesheet_item_staff_badge_size">@dimen/_40sdp</dimen>
-    <dimen name="timesheet_item_row_id_size">@dimen/_40sdp</dimen>
-    <dimen name="timesheet_row_dot_size">@dimen/_4sdp</dimen>
+    <dimen name="job_item_padding_horizontal">@dimen/_20sdp</dimen>
+    <dimen name="job_item_padding_vertical">@dimen/_15sdp</dimen>
+    <dimen name="job_item_corner_radius">@dimen/_7sdp</dimen>
+    <dimen name="item_staff_padding_start">@dimen/_15sdp</dimen>
+    <dimen name="item_staff_padding_end">@dimen/_13sdp</dimen>
+    <dimen name="item_staff_padding_top">@dimen/_15sdp</dimen>
+    <dimen name="job_list_margin_horizontal">@dimen/_15sdp</dimen>
+    <dimen name="job_list_margin_top">@dimen/_15sdp</dimen>
+    <dimen name="item_staff_badge_size">@dimen/_40sdp</dimen>
+    <dimen name="item_row_id_size">@dimen/_40sdp</dimen>
+    <dimen name="item_row_margin_end">@dimen/_7sdp</dimen>
+    <dimen name="item_row_id_dot_size">@dimen/_4sdp</dimen>
+    <dimen name="confirm_button_margin_horizontal">@dimen/_17sdp</dimen>
+    <dimen name="confirm_button_margin_vertical">@dimen/_20sdp</dimen>
 </resources>

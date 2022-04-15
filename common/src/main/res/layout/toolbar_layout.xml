@@ -10,14 +10,14 @@
         android:layout_height="?actionBarSize"
         android:background="@color/all_red_dark"
         android:orientation="vertical"
-        tools:layout_height="@dimen/height_toolbar">
+        tools:layout_height="@dimen/all_toolbar_height">
 
         <FrameLayout
             android:id="@+id/layout_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="?selectableItemBackgroundBorderless"
-            android:paddingStart="@dimen/margin_padding_all_large"
+            android:paddingStart="@dimen/all_margin_padding_large"
             android:paddingEnd="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

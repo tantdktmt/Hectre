@@ -15,13 +15,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/timesheet_job_list_bg">
+        android:background="@color/job_list_bg">
 
         <com.hectre.common.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/timesheet_update_rate_volume_title"
+            android:text="@string/job_list_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
             android:id="@+id/rv_job"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/timesheet_job_list_margin_horizontal"
+            android:layout_marginHorizontal="@dimen/job_list_margin_horizontal"
             android:visibility="@{safeUnbox(view_model.loading) ? View.GONE : View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

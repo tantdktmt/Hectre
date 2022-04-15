@@ -3,10 +3,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/job_list_divider_bg"
-    android:paddingVertical="@dimen/_15sdp"
-    android:paddingStart="@dimen/timesheet_item_staff_padding_start"
-    android:paddingEnd="@dimen/timesheet_item_staff_padding_end">
+    android:background="@drawable/item_divider_bg"
+    android:paddingVertical="@dimen/job_item_padding_vertical"
+    android:paddingStart="@dimen/item_staff_padding_start"
+    android:paddingEnd="@dimen/item_staff_padding_end">
 
     <View
         android:layout_width="match_parent"

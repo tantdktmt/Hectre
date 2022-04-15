@@ -8,33 +8,33 @@
 
         <variable
             name="item_data"
-            type="com.hectre.timesheet.presentation.model.Row" />
+            type="com.hectre.timesheet.presentation.model.RowModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_7sdp">
+        android:layout_marginEnd="@dimen/item_row_margin_end">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_row_id"
-            android:layout_width="@dimen/timesheet_item_row_id_size"
-            android:layout_height="@dimen/timesheet_item_row_id_size"
+            android:layout_width="@dimen/item_row_id_size"
+            android:layout_height="@dimen/item_row_id_size"
             android:gravity="center"
             android:rowIdTextStyle="@{item_data.assigned}"
             android:text="@{item_data.id.toString()}"
             android:textColor="@color/all_text_white"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/all_textsize_large"
             android:textStyle="bold" />
 
         <View
-            android:layout_width="@dimen/timesheet_row_dot_size"
-            android:layout_height="@dimen/timesheet_row_dot_size"
+            android:layout_width="@dimen/item_row_id_dot_size"
+            android:layout_height="@dimen/item_row_id_dot_size"
             android:layout_alignTop="@id/tv_row_id"
             android:layout_alignEnd="@id/tv_row_id"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:background="@drawable/timesheet_dot_orange_bg"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_1"
+            android:layout_marginEnd="@dimen/all_margin_padding_tiny_1"
+            android:background="@drawable/item_row_id_dot_orange_bg"
             android:visibility="@{item_data.treesCompletedByOther > 0 ? View.VISIBLE : View.GONE}" />
     </RelativeLayout>
 </layout>

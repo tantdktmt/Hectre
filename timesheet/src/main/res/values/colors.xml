@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <color name="timesheet_item_header_bg">#edd491</color>
-    <color name="timesheet_job_list_bg">#f4f5eb</color>
+    <color name="job_list_item_header_bg">#edd491</color>
+    <color name="job_list_bg">#f4f5eb</color>
 </resources>

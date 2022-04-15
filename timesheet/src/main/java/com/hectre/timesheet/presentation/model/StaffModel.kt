@@ -14,7 +14,7 @@ data class StaffModel(
     var rateType: Int,
     var pieceRate: String,
     val isLast: Boolean,
-    var listAvailableRow: List<Row>?
+    var listAvailableRow: List<RowModel>?
 ) : BaseListModel.BaseListDataModel(ViewType.STAFF) {
 
     val listAssignedRow
@@ -22,7 +22,7 @@ data class StaffModel(
             it.assigned
         } ?: emptyList()
 
-    fun updateListAvailableRow(updatedRow: Row) {
+    fun updateListAvailableRow(updatedRow: RowModel) {
         listAvailableRow = listAvailableRow?.map {
             if (it.id == updatedRow.id) it.copy(assigned = !it.assigned) else it
         }

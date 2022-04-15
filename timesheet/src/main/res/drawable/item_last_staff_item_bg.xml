@@ -10,7 +10,7 @@
             android:color="@color/all_orange_2" />
 
         <corners
-            android:bottomLeftRadius="@dimen/_8sdp"
-            android:bottomRightRadius="@dimen/_8sdp" />
+            android:bottomLeftRadius="@dimen/job_item_corner_radius"
+            android:bottomRightRadius="@dimen/job_item_corner_radius" />
     </shape>
 </inset>

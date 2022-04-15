@@ -7,22 +7,22 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.databinding.ItemRowInfoBinding
-import com.hectre.timesheet.presentation.model.Row
+import com.hectre.timesheet.presentation.model.RowModel
 
-class RowInfoAdapter() : ListAdapter<Row, RowInfoAdapter.ViewHolder>(itemDiff) {
+class RowInfoAdapter() : ListAdapter<RowModel, RowInfoAdapter.ViewHolder>(itemDiff) {
 
     companion object {
 
-        private val itemDiff = object : DiffUtil.ItemCallback<Row>() {
+        private val itemDiff = object : DiffUtil.ItemCallback<RowModel>() {
 
             override fun areItemsTheSame(
-                oldItem: Row,
-                newItem: Row
+                oldItem: RowModel,
+                newItem: RowModel
             ) = oldItem === newItem // CHECK AGAIN
 
             override fun areContentsTheSame(
-                oldItem: Row,
-                newItem: Row
+                oldItem: RowModel,
+                newItem: RowModel
             ): Boolean =
                 oldItem == newItem
         }
@@ -45,7 +45,7 @@ class RowInfoAdapter() : ListAdapter<Row, RowInfoAdapter.ViewHolder>(itemDiff) {
     inner class ViewHolder(private val binding: ItemRowInfoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindData(item: Row) = with(binding) {
+        fun bindData(item: RowModel) = with(binding) {
             setVariable(BR.item_data, item)
             executePendingBindings()
         }

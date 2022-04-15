@@ -37,7 +37,7 @@ object ModelUtil {
                                 Constant.DEFAULT_PIECE_RATE,
                                 false,
                                 this[j].listRow?.map {
-                                    Row(
+                                    RowModel(
                                         it.id,
                                         it.label,
                                         it.totalTrees ?: 0,
@@ -72,7 +72,7 @@ object ModelUtil {
                                 Constant.DEFAULT_PIECE_RATE,
                                 true,
                                 this[j].listRow?.map {
-                                    Row(
+                                    RowModel(
                                         it.id,
                                         it.label,
                                         it.totalTrees ?: 0,

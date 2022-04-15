@@ -3,17 +3,18 @@
 <resources>
 
     <!-- Common -->
-    <dimen name="height_toolbar">@dimen/_46sdp</dimen>
-    <dimen name="textsize_all_large">@dimen/_15ssp</dimen>
-    <dimen name="textsize_all_header">@dimen/_20ssp</dimen>
-    <dimen name="textsize_all_header_2">@dimen/_14ssp</dimen>
-    <dimen name="margin_padding_all_normal">@dimen/_13sdp</dimen>
-    <dimen name="margin_padding_all_large">@dimen/_20sdp</dimen>
-    <dimen name="height_button">@dimen/_40sdp</dimen>
-    <dimen name="button_corner_radius_small">@dimen/_4sdp</dimen>
-    <dimen name="button_corner_radius_medium">@dimen/_9sdp</dimen>
-    <dimen name="all_button_radius_small">@dimen/_3sdp</dimen>
-    <dimen name="all_text_view_padding_small">@dimen/_7sdp</dimen>
+    <dimen name="all_toolbar_height">@dimen/_46sdp</dimen>
+    <dimen name="all_textsize_medium">@dimen/_12ssp</dimen>
+    <dimen name="all_textsize_large">@dimen/_14ssp</dimen>
+    <dimen name="all_textsize_header">@dimen/_18ssp</dimen>
+    <dimen name="all_margin_padding_tiny_1">@dimen/_5sdp</dimen>
+    <dimen name="all_margin_padding_tiny_2">@dimen/_7sdp</dimen>
+    <dimen name="all_margin_padding_tiny_3">@dimen/_9sdp</dimen>
+    <dimen name="all_margin_padding_normal">@dimen/_13sdp</dimen>
+    <dimen name="all_margin_padding_large">@dimen/_20sdp</dimen>
+    <dimen name="all_button_height">@dimen/_40sdp</dimen>
+    <dimen name="all_corner_radius_small">@dimen/_4sdp</dimen>
+    <dimen name="all_corner_radius_medium">@dimen/_9sdp</dimen>
     <dimen name="all_divider_height">@dimen/_1sdp</dimen>
     <!-- Common -->
 </resources>

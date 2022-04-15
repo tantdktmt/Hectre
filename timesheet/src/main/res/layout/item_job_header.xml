@@ -12,11 +12,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:background="@drawable/timesheet_job_header_item_bg"
+        android:layout_marginTop="@dimen/job_list_margin_top"
+        android:background="@drawable/item_job_header_bg"
         android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/padding_horizontal_job_item"
-        android:paddingVertical="@dimen/padding_vertical_job_header_item">
+        android:paddingHorizontal="@dimen/job_item_padding_horizontal"
+        android:paddingVertical="@dimen/all_margin_padding_normal">
 
         <TextView
             style="@style/ItemHeaderText"
@@ -30,6 +30,6 @@
             style="@style/ItemHeaderWithBorderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/timesheet_add_max_trees_text" />
+            android:text="@string/job_list_add_max_trees_text" />
     </LinearLayout>
 </layout>

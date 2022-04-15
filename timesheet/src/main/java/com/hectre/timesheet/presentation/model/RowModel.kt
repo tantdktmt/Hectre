@@ -1,6 +1,6 @@
 package com.hectre.timesheet.presentation.model
 
-data class Row(
+data class RowModel(
     val id: Int?,
     val label: String?,
     val totalTrees: Int,
@@ -11,14 +11,14 @@ data class Row(
     var assigned: Boolean = true
 )
 
-fun List<Row>.containsRowExt(row: Row): Boolean {
+fun List<RowModel>.containsRowExt(row: RowModel): Boolean {
     forEach {
         if (it.id == row.id) return true
     }
     return false
 }
 
-fun List<Row>.containsRowWithId(id: Int?): Boolean {
+fun List<RowModel>.containsRowWithId(id: Int?): Boolean {
     forEach {
         if (it.id == id) return true
     }

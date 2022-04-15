@@ -11,7 +11,7 @@
 
         <variable
             name="item_data"
-            type="com.hectre.timesheet.presentation.model.Row" />
+            type="com.hectre.timesheet.presentation.model.RowModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,10 +22,10 @@
             android:id="@+id/tv_row_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/job_list_margin_top"
             android:text="@{item_data.label}"
             android:textColor="@color/all_black_alpha_80"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/all_textsize_medium"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,9 +34,9 @@
             android:id="@+id/layout_trees_info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:background="@drawable/job_list_row_text_field_bg"
-            android:paddingVertical="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_1"
+            android:background="@drawable/item_row_info_text_field_bg"
+            android:paddingVertical="@dimen/all_margin_padding_tiny_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_row_label">
@@ -46,9 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:availableTrees="@{item_data.availableTrees}"
-                android:text="@string/timesheet_per_hour_text"
+                android:text="@string/job_list_per_hour_text"
                 android:textColor="@color/all_black"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/all_textsize_large"
                 android:textStyle="bold"
                 android:treesCompletedByStaff="@{item_data.treesCompletedByStaff}" />
         </FrameLayout>
@@ -56,10 +56,10 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:text="@{@string/item_row_info_trees_completed_by_other(item_data.otherStaffName, item_data.treesCompletedByOther)}"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_1"
+            android:text="@{@string/job_list_trees_completed_by_other(item_data.otherStaffName, item_data.treesCompletedByOther)}"
             android:textColor="@color/all_black_alpha_80"
-            android:textSize="@dimen/_13ssp"
+            android:textSize="@dimen/all_textsize_medium"
             android:textStyle="bold"
             android:visibility="@{TextUtils.isEmpty(item_data.otherStaffName) ? View.GONE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"

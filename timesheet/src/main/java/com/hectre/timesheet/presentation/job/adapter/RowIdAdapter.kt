@@ -8,24 +8,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hectre.extension.setSafeOnClickListener
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.databinding.ItemRowIdBinding
-import com.hectre.timesheet.presentation.model.Row
+import com.hectre.timesheet.presentation.model.RowModel
 
 class RowIdAdapter(
-    private val onClickItem: (Row, RowIdAdapter) -> Unit
-) : ListAdapter<Row, RowIdAdapter.ViewHolder>(itemDiff) {
+    private val onClickItem: (RowModel, RowIdAdapter) -> Unit
+) : ListAdapter<RowModel, RowIdAdapter.ViewHolder>(itemDiff) {
 
     companion object {
 
-        private val itemDiff = object : DiffUtil.ItemCallback<Row>() {
+        private val itemDiff = object : DiffUtil.ItemCallback<RowModel>() {
 
             override fun areItemsTheSame(
-                oldItem: Row,
-                newItem: Row
+                oldItem: RowModel,
+                newItem: RowModel
             ) = oldItem.id == newItem.id
 
             override fun areContentsTheSame(
-                oldItem: Row,
-                newItem: Row
+                oldItem: RowModel,
+                newItem: RowModel
             ) = oldItem == newItem
         }
     }
@@ -47,7 +47,7 @@ class RowIdAdapter(
     inner class ViewHolder(private val binding: ItemRowIdBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindData(item: Row) = with(binding) {
+        fun bindData(item: RowModel) = with(binding) {
             setVariable(BR.item_data, item)
             root.setSafeOnClickListener {
                 onClickItem(item, this@RowIdAdapter)

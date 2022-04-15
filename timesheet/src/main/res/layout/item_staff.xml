@@ -28,23 +28,23 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="@dimen/timesheet_item_staff_badge_size"
-                android:layout_height="@dimen/timesheet_item_staff_badge_size"
+                android:layout_width="@dimen/item_staff_badge_size"
+                android:layout_height="@dimen/item_staff_badge_size"
                 android:backgroundBadge="@{item_data.badgeType}"
                 android:gravity="center"
                 android:text="@{item_data.badgeText}"
                 android:textColor="@color/all_text_white"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/all_textsize_large"
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_marginStart="@dimen/all_margin_padding_tiny_1"
                 android:text="@{item_data.fullName}"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/all_textsize_large"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -52,10 +52,10 @@
             android:id="@+id/tv_orchard_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:text="@string/timesheet_orchard_text"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_2"
+            android:text="@string/job_list_orchard_text"
             android:textColor="@color/all_gray_2"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/all_textsize_medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_staff_name" />
 
@@ -63,11 +63,11 @@
             android:id="@+id/tv_orchard_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginStart="@dimen/all_margin_padding_tiny_1"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_2"
             android:text="@{item_data.orchard}"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/all_textsize_medium"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_orchard_label"
             app:layout_constraintTop_toBottomOf="@id/layout_staff_name" />
@@ -76,10 +76,10 @@
             android:id="@+id/tv_block_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_6sdp"
-            android:text="@string/timesheet_block_text"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_1"
+            android:text="@string/job_list_block_text"
             android:textColor="@color/all_gray_2"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/all_textsize_medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_orchard_label" />
 
@@ -87,11 +87,11 @@
             android:id="@+id/tv_block_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginStart="@dimen/all_margin_padding_tiny_1"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_2"
             android:text="@{item_data.block}"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/all_textsize_medium"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_block_label"
             app:layout_constraintTop_toBottomOf="@id/tv_orchard_label" />
@@ -100,10 +100,10 @@
             android:id="@+id/tv_rate_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:text="@string/timesheet_rate_type_text"
+            android:layout_marginTop="@dimen/all_margin_padding_large"
+            android:text="@string/job_list_rate_type_text"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/all_textsize_large"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_block_label" />
@@ -112,7 +112,7 @@
             android:id="@+id/layout_rate_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/all_margin_padding_normal"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,15 +124,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:paddingVertical="@dimen/_7sdp"
+                android:paddingVertical="@dimen/all_margin_padding_tiny_2"
                 android:rateSelected="@{item_data.rateType == RateType.PIECE_RATE}"
-                android:text="@string/timesheet_piece_rate_text"
+                android:text="@string/job_list_piece_rate_text"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/all_textsize_large"
                 android:textStyle="bold" />
 
             <View
-                android:layout_width="@dimen/_7sdp"
+                android:layout_width="@dimen/all_margin_padding_tiny_2"
                 android:layout_height="wrap_content" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -141,11 +141,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:paddingVertical="@dimen/_7sdp"
+                android:paddingVertical="@dimen/all_margin_padding_tiny_2"
                 android:rateSelected="@{item_data.rateType != RateType.PIECE_RATE}"
-                android:text="@string/timesheet_wages_text"
+                android:text="@string/job_list_wages_text"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/all_textsize_large"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -153,7 +153,7 @@
             android:id="@+id/layout_rate_type_action"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/all_margin_padding_normal"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -168,11 +168,11 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:background="@drawable/timesheet_staff_item_rate_edittext_bg"
+                    android:layout_marginEnd="@dimen/all_margin_padding_normal"
+                    android:background="@drawable/item_staff_rate_edittext_bg"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_9sdp"
-                    android:paddingVertical="@dimen/_7sdp"
+                    android:paddingHorizontal="@dimen/all_margin_padding_tiny_3"
+                    android:paddingVertical="@dimen/all_margin_padding_tiny_2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/tv_apply_to_all"
                     app:layout_constraintStart_toStartOf="parent"
@@ -181,14 +181,14 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/timesheet_currency_symbol"
+                        android:text="@string/job_list_currency_symbol"
                         android:textColor="@color/all_gray_2"
-                        android:textSize="@dimen/_14ssp" />
+                        android:textSize="@dimen/all_textsize_large" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_marginStart="@dimen/all_margin_padding_tiny_1"
                         android:layout_weight="1"
                         android:autofillHints=""
                         android:background="@android:color/transparent"
@@ -197,23 +197,23 @@
                         android:maxLines="1"
                         android:text="@={item_data.pieceRate}"
                         android:textColor="@android:color/black"
-                        android:textSize="@dimen/_13ssp" />
+                        android:textSize="@dimen/all_textsize_medium" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/timesheet_per_hour_text"
+                        android:text="@string/job_list_per_hour_text"
                         android:textColor="@color/all_gray_2"
-                        android:textSize="@dimen/_14ssp" />
+                        android:textSize="@dimen/all_textsize_large" />
                 </LinearLayout>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_apply_to_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/timesheet_apply_to_all_text"
+                    android:text="@string/job_list_apply_to_all_text"
                     android:textColor="@color/all_red_dark"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/all_textsize_medium"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -223,9 +223,9 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{@string/timesheet_rate_type_wages_description(item_data.specificJobName)}"
+                android:text="@{@string/job_list_rate_type_wages_description(item_data.specificJobName)}"
                 android:textColor="@color/all_text_orange"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/all_textsize_large"
                 android:textStyle="bold"
                 android:visibility="@{item_data.rateType == RateType.WAGES ? View.VISIBLE : View.GONE}" />
         </FrameLayout>
@@ -234,7 +234,7 @@
             android:id="@+id/rv_row_id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_rate_type_action" />
@@ -243,7 +243,7 @@
             android:id="@+id/rv_row_info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_row_id" />
