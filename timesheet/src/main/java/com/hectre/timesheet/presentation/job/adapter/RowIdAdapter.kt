@@ -47,12 +47,12 @@ class RowIdAdapter(
     inner class ViewHolder(private val binding: ItemRowIdBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindData(item: Row) {
-            binding.setVariable(BR.item_data, item)
-            binding.root.setSafeOnClickListener {
+        fun bindData(item: Row) = with(binding) {
+            setVariable(BR.item_data, item)
+            root.setSafeOnClickListener {
                 onClickItem(item, this@RowIdAdapter)
             }
-            binding.executePendingBindings()
+            executePendingBindings()
         }
     }
 }

@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="@{item_data.otherStaffName}"
+            android:text="@{@string/item_row_info_trees_completed_by_other(item_data.otherStaffName, item_data.treesCompletedByOther)}"
             android:textColor="@color/all_black_alpha_80"
             android:textSize="@dimen/_13ssp"
             android:textStyle="bold"

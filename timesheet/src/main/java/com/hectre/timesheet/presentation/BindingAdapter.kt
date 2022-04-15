@@ -2,6 +2,7 @@ package com.hectre.timesheet.presentation
 
 import android.graphics.Typeface
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.hectre.extension.setSpannedText
@@ -20,13 +21,17 @@ fun setBackgroundBadge(view: View, badgeType: Int) {
     }
 }
 
-@BindingAdapter("android:backgroundStaffItem")
-fun setBackgroundStaffItem(view: View, isLast: Boolean) {
+@BindingAdapter("android:backgroundAndPaddingStaffItem")
+fun setBackgroundAndPaddingStaffItem(view: View, isLast: Boolean) {
     if (isLast) {
         view.setBackgroundResource(R.drawable.timesheet_last_staff_item_bg)
     } else {
         view.setBackgroundResource(R.drawable.timesheet_staff_item_bg)
     }
+    val paddingStart = view.context.resources.getDimensionPixelSize(R.dimen.timesheet_item_staff_padding_start)
+    val paddingEnd = view.context.resources.getDimensionPixelSize(R.dimen.timesheet_item_staff_padding_end)
+    val paddingVertical = view.context.resources.getDimensionPixelSize(R.dimen.timesheet_item_staff_padding_top)
+    view.setPadding(paddingStart, paddingVertical, paddingEnd, paddingVertical)
 }
 
 @BindingAdapter("android:rateSelected")

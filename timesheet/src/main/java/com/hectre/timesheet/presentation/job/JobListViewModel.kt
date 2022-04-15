@@ -7,6 +7,7 @@ import com.hectre.timesheet.presentation.model.ModelUtil
 import com.hectre.timesheet.presentation.model.StaffModel
 import com.hectre.timesheet.presentation.model.containsRowExt
 import com.hectre.timesheet.presentation.usecase.GetListJobUseCase
+import com.hectre.utility.LogUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -34,46 +35,82 @@ class JobListViewModel @Inject constructor(
     }
 
     fun handleAddMaxTrees(jobId: Int?) {
-        val listStaff = _listJobModel.value.filterIsInstance<StaffModel>().filter {
-            it.jobId == jobId
-        }.map {
-            it.deepCopy()
-        }
-        if (listStaff.isEmpty()) return
-        var listAssignedRowShortest = listStaff[0].listAssignedRow
-        listStaff.forEach {
-            if (it.listAssignedRow.size < listAssignedRowShortest.size) listAssignedRowShortest =
-                it.listAssignedRow
-        }
-        var shouldUpdateData = false
-        listAssignedRowShortest.forEach { row ->
-            var isAssignedByAllStaffs = true
-            for (i in listStaff.indices) {
-                if (!listStaff[i].listAssignedRow.containsRowExt(row)) {
-                    isAssignedByAllStaffs = false
-                    break
+        viewModelScope.launch {
+            showLoading()
+            val listStaffNeedUpdate = _listJobModel.value.filterIsInstance<StaffModel>().filter {
+                it.jobId == jobId
+            }.map {
+                it.deepCopy()
+            }
+            if (listStaffNeedUpdate.isEmpty()) return@launch
+            var listAssignedRowShortest = listStaffNeedUpdate[0].listAssignedRow
+            listStaffNeedUpdate.forEach {
+                if (it.listAssignedRow.size < listAssignedRowShortest.size) listAssignedRowShortest =
+                    it.listAssignedRow
+            }
+            var shouldUpdateData = false
+            listAssignedRowShortest.forEach { row ->
+                var isAssignedByAllStaffs = true
+                for (i in listStaffNeedUpdate.indices) {
+                    if (!listStaffNeedUpdate[i].listAssignedRow.containsRowExt(row)) {
+                        isAssignedByAllStaffs = false
+                        break
+                    }
+                }
+                if (isAssignedByAllStaffs) {
+                    shouldUpdateData = true
+                    val newAvailableTrees =
+                        (row.totalTrees - row.treesCompletedByOther) / listStaffNeedUpdate.size
+                    listStaffNeedUpdate.forEach {
+                        it.listAssignedRow.find {
+                            it.id == row.id
+                        }?.availableTrees = newAvailableTrees
+                    }
                 }
             }
-            if (isAssignedByAllStaffs) {
-                shouldUpdateData = true
-                val newAvailableTrees =
-                    (row.totalTrees - row.treesCompletedByOther) / listStaff.size
-                listStaff.forEach {
-                    it.listAssignedRow.find {
-                        it.id == row.id
-                    }?.availableTrees = newAvailableTrees
+            if (shouldUpdateData) {
+                val listTemp = _listJobModel.value.map { model ->
+                    if (model is StaffModel) {
+                        listStaffNeedUpdate.find {
+                            it.staffId == model.staffId
+                        } ?: model
+                    } else model
                 }
+                _listJobModel.value = listTemp
             }
+            hideLoading()
         }
-        if (shouldUpdateData) {
+    }
+
+    fun onClickApplyToAll(jobId: Int?, pieceRate: String) {
+        LogUtil.d("onClickApplyToAll: jobId=$jobId, pieceRate=$pieceRate")
+        viewModelScope.launch {
+            showLoading()
+            val listStaffNeedUpdate = _listJobModel.value.filterIsInstance<StaffModel>().filter {
+                it.jobId == jobId
+            }.map {
+                if (it.pieceRate != pieceRate) it.copy(pieceRate = pieceRate) else it
+            }
             val listTemp = _listJobModel.value.map { model ->
                 if (model is StaffModel) {
-                    listStaff.find {
+                    listStaffNeedUpdate.find {
                         it.staffId == model.staffId
                     } ?: model
                 } else model
             }
             _listJobModel.value = listTemp
+            hideLoading()
+        }
+    }
+
+    fun onClickRateType(staffId: Int?, rateType: Int) {
+        viewModelScope.launch {
+            showLoading()
+            val listTemp = _listJobModel.value.map { model ->
+                if (model is StaffModel && model.staffId == staffId) model.copy(rateType = rateType) else model
+            }
+            _listJobModel.value = listTemp
+            hideLoading()
         }
     }
 }

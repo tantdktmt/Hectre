@@ -14,12 +14,14 @@ import com.hectre.timesheet.databinding.ItemJobHeaderBinding
 import com.hectre.timesheet.databinding.ItemStaffBinding
 import com.hectre.timesheet.presentation.model.BaseListModel
 import com.hectre.timesheet.presentation.model.JobHeaderModel
+import com.hectre.timesheet.presentation.model.RateType
 import com.hectre.timesheet.presentation.model.StaffModel
 import com.hectre.utility.LogUtil
 
 class JobAdapter(
     private val onClickAddMaxTrees: (Int?) -> Unit,
-    private val onClickApplyToAll: () -> Unit
+    private val onClickApplyToAll: (Int?, String) -> Unit,
+    private val onClickRateType: (Int?, Int) -> Unit
 ) : ListAdapter<BaseListModel, RecyclerView.ViewHolder>(itemDiff) {
 
     companion object {
@@ -29,26 +31,16 @@ class JobAdapter(
             override fun areItemsTheSame(
                 oldItem: BaseListModel,
                 newItem: BaseListModel
-            ): Boolean {
-                // TESTING
-                val itemsSame = if (oldItem is StaffModel && newItem is StaffModel) {
-                    oldItem.staffId == newItem.staffId
-                } else true
-                LogUtil.d("Old ${oldItem.hashCode()}, new ${newItem.hashCode()}, itemsSame = $itemsSame")
-                return itemsSame
-            }
+            ) = if (oldItem is StaffModel && newItem is StaffModel) {
+                oldItem.staffId == newItem.staffId
+            } else true
 
             override fun areContentsTheSame(
                 oldItem: BaseListModel,
                 newItem: BaseListModel
-            ): Boolean {
-                // TESTING
-                val contentsSame = if (oldItem is StaffModel && newItem is StaffModel) {
-                    oldItem == newItem
-                } else true
-                LogUtil.d("Old ${oldItem.hashCode()}, new ${newItem.hashCode()}, contents = $contentsSame")
-                return contentsSame
-            }
+            ) = if (oldItem is StaffModel && newItem is StaffModel) {
+                oldItem == newItem
+            } else true
         }
     }
 
@@ -130,23 +122,35 @@ class JobAdapter(
     private inner class JobHeaderViewHolder(private val binding: ItemJobHeaderBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindData(item: JobHeaderModel) {
-            binding.setVariable(BR.item_data, item)
-            binding.tvAddMaxTrees.setSafeOnClickListener {
+        fun bindData(item: JobHeaderModel) = with(binding) {
+            setVariable(BR.item_data, item)
+            tvAddMaxTrees.setSafeOnClickListener {
                 onClickAddMaxTrees(item.jobId)
             }
-            binding.executePendingBindings()
+            executePendingBindings()
         }
     }
 
     private inner class StaffViewHolder(private val binding: ItemStaffBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindData(item: StaffModel) {
-            binding.setVariable(BR.item_data, item)
+        fun bindData(item: StaffModel) = with(binding) {
+            setVariable(BR.item_data, item)
+
+            tvPieceRate.setSafeOnClickListener {
+                onClickRateType(item.staffId, RateType.PIECE_RATE)
+            }
+
+            tvWages.setSafeOnClickListener {
+                onClickRateType(item.staffId, RateType.WAGES)
+            }
+
+            tvApplyToAll.setSafeOnClickListener {
+                onClickApplyToAll(item.jobId, item.pieceRate)
+            }
 
             val rowInfoAdapter = RowInfoAdapter()
-            binding.rvRowInfo.adapter = rowInfoAdapter
+            rvRowInfo.adapter = rowInfoAdapter
             rowInfoAdapter.submitList(item.listAssignedRow)
 
             val rowIdAdapter = RowIdAdapter { row, adapter ->
@@ -155,10 +159,10 @@ class JobAdapter(
                 adapter.submitList(item.listAvailableRow)
                 rowInfoAdapter.submitList(item.listAssignedRow)
             }
-            binding.rvRowId.adapter = rowIdAdapter
+            rvRowId.adapter = rowIdAdapter
             rowIdAdapter.submitList(item.listAvailableRow)
 
-            binding.executePendingBindings()
+            executePendingBindings()
         }
     }
 

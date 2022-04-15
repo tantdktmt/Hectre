@@ -21,7 +21,8 @@ class JobListFragment :
     private val jobAdapter by lazy {
         JobAdapter(
             viewModel::handleAddMaxTrees,
-            ::onClickApplyToAll
+            viewModel::onClickApplyToAll,
+            viewModel::onClickRateType
         )
     }
 
@@ -57,8 +58,5 @@ class JobListFragment :
     override fun onResume() {
         super.onResume()
         viewModel.loadData()
-    }
-
-    private fun onClickApplyToAll() {
     }
 }

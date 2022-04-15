@@ -17,10 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundStaffItem="@{item_data.isLast}"
-        android:paddingVertical="@dimen/timesheet_item_staff_padding_top"
-        android:paddingStart="@dimen/timesheet_item_staff_padding_start"
-        android:paddingEnd="@dimen/timesheet_item_staff_padding_end">
+        android:backgroundAndPaddingStaffItem="@{item_data.isLast}">
 
         <LinearLayout
             android:id="@+id/layout_staff_name"

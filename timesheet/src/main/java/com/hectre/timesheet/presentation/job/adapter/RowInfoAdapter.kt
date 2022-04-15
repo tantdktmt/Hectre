@@ -45,9 +45,9 @@ class RowInfoAdapter() : ListAdapter<Row, RowInfoAdapter.ViewHolder>(itemDiff) {
     inner class ViewHolder(private val binding: ItemRowInfoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindData(item: Row) {
-            binding.setVariable(BR.item_data, item)
-            binding.executePendingBindings()
+        fun bindData(item: Row) = with(binding) {
+            setVariable(BR.item_data, item)
+            executePendingBindings()
         }
     }
 }
