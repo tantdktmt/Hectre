@@ -57,6 +57,10 @@ class JobListFragment :
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadData()
+        viewModel.run {
+            if (listJobModel.value.isEmpty()) {
+                loadData()
+            }
+        }
     }
 }
