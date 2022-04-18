@@ -22,7 +22,7 @@
               "total_trees": 400,
               "trees_completed_by_other": 200,
               "other_staff_name": "Yi Wan",
-              "trees_completed_by_staff": 4
+              "trees_assigned_to_staff": 4
             },
             {
               "id": 4,
@@ -30,7 +30,7 @@
               "total_trees": 556,
               "trees_completed_by_other": 250,
               "other_staff_name": "Elizabeth Jargrave",
-              "trees_completed_by_staff": 2
+              "trees_assigned_to_staff": 2
             }
           ]
         },
@@ -48,7 +48,7 @@
               "total_trees": 400,
               "trees_completed_by_other": 200,
               "other_staff_name": "Yi Wan",
-              "trees_completed_by_staff": 6
+              "trees_assigned_to_staff": 6
             },
             {
               "id": 4,
@@ -56,7 +56,7 @@
               "total_trees": 556,
               "trees_completed_by_other": 250,
               "other_staff_name": "Elizabeth Jargrave",
-              "trees_completed_by_staff": 2
+              "trees_assigned_to_staff": 2
             },
             {
               "id": 5,
@@ -64,7 +64,7 @@
               "total_trees": 270,
               "trees_completed_by_other": 0,
               "other_staff_name": "",
-              "trees_completed_by_staff": 20
+              "trees_assigned_to_staff": 20
             }
           ]
         }
@@ -88,7 +88,7 @@
               "total_trees": 400,
               "trees_completed_by_other": 200,
               "other_staff_name": "Yi Wan",
-              "trees_completed_by_staff": 7
+              "trees_assigned_to_staff": 7
             },
             {
               "id": 4,
@@ -96,7 +96,7 @@
               "total_trees": 556,
               "trees_completed_by_other": 250,
               "other_staff_name": "Elizabeth Jargrave",
-              "trees_completed_by_staff": 2
+              "trees_assigned_to_staff": 2
             },
             {
               "id": 5,
@@ -104,7 +104,7 @@
               "total_trees": 270,
               "trees_completed_by_other": 0,
               "other_staff_name": "",
-              "trees_completed_by_staff": 20
+              "trees_assigned_to_staff": 20
             }
           ]
         }

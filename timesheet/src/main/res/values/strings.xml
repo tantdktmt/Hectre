@@ -13,4 +13,5 @@
     <string name="job_list_apply_to_all_text">APPLY TO ALL</string>
     <string name="job_list_rate_type_wages_description">%s will be paid by wages in this timesheet</string>
     <string name="job_list_trees_completed_by_other">%1$s (%2$d)</string>
+    <string name="job_list_total_trees">/ %1$d</string>
 </resources>

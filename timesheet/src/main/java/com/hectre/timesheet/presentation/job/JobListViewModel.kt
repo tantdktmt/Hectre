@@ -2,10 +2,10 @@ package com.hectre.timesheet.presentation.job
 
 import androidx.lifecycle.viewModelScope
 import com.hectre.common.base.BaseViewModel
+import com.hectre.config.Constant
 import com.hectre.timesheet.presentation.model.BaseListModel
 import com.hectre.timesheet.presentation.model.ModelUtil
 import com.hectre.timesheet.presentation.model.StaffModel
-import com.hectre.timesheet.presentation.model.containsRowExt
 import com.hectre.timesheet.presentation.usecase.GetListJobUseCase
 import com.hectre.utility.LogUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -42,42 +42,33 @@ class JobListViewModel @Inject constructor(
             }.map {
                 it.deepCopy()
             }
-            if (listStaffNeedUpdate.isEmpty()) return@launch
-            var listAssignedRowShortest = listStaffNeedUpdate[0].listAssignedRow
-            listStaffNeedUpdate.forEach {
-                if (it.listAssignedRow.size < listAssignedRowShortest.size) listAssignedRowShortest =
-                    it.listAssignedRow
-            }
-            var shouldUpdateData = false
-            listAssignedRowShortest.forEach { row ->
-                var isAssignedByAllStaffs = true
-                for (i in listStaffNeedUpdate.indices) {
-                    if (!listStaffNeedUpdate[i].listAssignedRow.containsRowExt(row)) {
-                        isAssignedByAllStaffs = false
-                        break
-                    }
-                }
-                if (isAssignedByAllStaffs) {
-                    shouldUpdateData = true
-                    val newAvailableTrees =
-                        (row.totalTrees - row.treesCompletedByOther) / listStaffNeedUpdate.size
-                    listStaffNeedUpdate.forEach {
-                        it.listAssignedRow.find {
-                            it.id == row.id
-                        }?.availableTrees = newAvailableTrees
+            val assignedCount = hashMapOf<Int, Int>()
+            listStaffNeedUpdate.forEach { staff ->
+                staff.listAvailableRow?.forEach { row ->
+                    if (row.assigned) {
+                        if (assignedCount[row.id] == null) assignedCount[row.id] = 1
+                        else assignedCount[row.id] = assignedCount[row.id]!! + 1
                     }
                 }
             }
-            if (shouldUpdateData) {
-                val listTemp = _listJobModel.value.map { model ->
-                    if (model is StaffModel) {
-                        listStaffNeedUpdate.find {
-                            it.staffId == model.staffId
-                        } ?: model
-                    } else model
+            listStaffNeedUpdate.forEach { staff ->
+                staff.listAvailableRow?.forEach { row ->
+                    if (row.assigned) {
+                        row.treesAssignedToStaff =
+                            ((row.totalTrees - row.treesCompletedByOther) / assignedCount[row.id]!!).toString()
+                    } else {
+                        row.treesAssignedToStaff = Constant.DEFAULT_TREES_ASSIGNED_TO_STAFF
+                    }
                 }
-                _listJobModel.value = listTemp
             }
+            val listTemp = _listJobModel.value.map { model ->
+                if (model is StaffModel) {
+                    listStaffNeedUpdate.find {
+                        it.staffId == model.staffId
+                    } ?: model
+                } else model
+            }
+            _listJobModel.value = listTemp
             hideLoading()
         }
     }

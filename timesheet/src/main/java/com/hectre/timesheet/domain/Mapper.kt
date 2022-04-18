@@ -25,7 +25,7 @@ object Mapper {
                         it.totalTrees,
                         it.treesCompletedByOther,
                         it.otherStaffName,
-                        it.treesCompletedByStaff
+                        it.treesAssignedToStaff
                     )
                 })
         }

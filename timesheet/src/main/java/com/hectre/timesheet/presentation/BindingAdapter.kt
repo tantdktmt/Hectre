@@ -4,7 +4,6 @@ import android.graphics.Typeface
 import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.hectre.extension.setSpannedText
 import com.hectre.extension.setTextColorExt
 import com.hectre.timesheet.R
 import com.hectre.timesheet.presentation.model.StaffModel
@@ -57,11 +56,4 @@ fun setRowIdTextStyle(textView: TextView, assigned: Boolean) {
         textView.setTextColorExt(CommonR.color.all_black)
         textView.typeface = Typeface.DEFAULT
     }
-}
-
-@BindingAdapter("android:treesCompletedByStaff", "android:availableTrees")
-fun setTreeInfoText(textView: TextView, treesCompletedByStaff: Int, availableTrees: Int) {
-    val subText1 = "$treesCompletedByStaff"
-    val subText2 = " / $availableTrees"
-    textView.setSpannedText(subText1, subText2, CommonR.color.all_gray_2)
 }

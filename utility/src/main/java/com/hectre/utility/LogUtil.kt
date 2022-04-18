@@ -10,4 +10,10 @@ object LogUtil {
             Log.d(Constant.DEBUG_LOG_TAG, message)
         }
     }
+
+    fun e(message: String) {
+        if (BuildConfig.DEBUG) {
+            Log.e(Constant.DEBUG_LOG_TAG, message)
+        }
+    }
 }

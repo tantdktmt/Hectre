@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.databinding.ItemRowInfoBinding
 import com.hectre.timesheet.presentation.model.RowModel
+import com.hectre.utility.CharRestrictionTextWatcher
+import com.hectre.utility.ViewUtil
 
-class RowInfoAdapter() : ListAdapter<RowModel, RowInfoAdapter.ViewHolder>(itemDiff) {
+class RowInfoAdapter : ListAdapter<RowModel, RowInfoAdapter.ViewHolder>(itemDiff) {
 
     companion object {
 
@@ -18,7 +20,7 @@ class RowInfoAdapter() : ListAdapter<RowModel, RowInfoAdapter.ViewHolder>(itemDi
             override fun areItemsTheSame(
                 oldItem: RowModel,
                 newItem: RowModel
-            ) = oldItem === newItem // CHECK AGAIN
+            ) = oldItem.id == newItem.id
 
             override fun areContentsTheSame(
                 oldItem: RowModel,
@@ -45,9 +47,23 @@ class RowInfoAdapter() : ListAdapter<RowModel, RowInfoAdapter.ViewHolder>(itemDi
     inner class ViewHolder(private val binding: ItemRowInfoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        private val textWatcher = CharRestrictionTextWatcher()
+
         fun bindData(item: RowModel) = with(binding) {
             setVariable(BR.item_data, item)
             executePendingBindings()
+            etTreesAssignedToStaff.apply {
+                removeTextChangedListener(textWatcher)
+                addTextChangedListener(textWatcher.attachEditText(this))
+                setOnFocusChangeListener { _, hasFocus ->
+                    if (hasFocus) {
+                        setSelection(text?.length ?: return@setOnFocusChangeListener)
+                    }
+                }
+            }
+            tvTotalTrees.setOnClickListener {
+                ViewUtil.showKeyboard(etTreesAssignedToStaff)
+            }
         }
     }
 }

@@ -22,7 +22,7 @@
             android:layout_height="@dimen/item_row_id_size"
             android:gravity="center"
             android:rowIdTextStyle="@{item_data.assigned}"
-            android:text="@{item_data.id.toString()}"
+            android:text="@{String.valueOf(item_data.id)}"
             android:textColor="@color/all_text_white"
             android:textSize="@dimen/all_textsize_large"
             android:textStyle="bold" />
@@ -32,8 +32,8 @@
             android:layout_height="@dimen/item_row_id_dot_size"
             android:layout_alignTop="@id/tv_row_id"
             android:layout_alignEnd="@id/tv_row_id"
-            android:layout_marginTop="@dimen/all_margin_padding_tiny_1"
-            android:layout_marginEnd="@dimen/all_margin_padding_tiny_1"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_2"
+            android:layout_marginEnd="@dimen/all_margin_padding_tiny_2"
             android:background="@drawable/item_row_id_dot_orange_bg"
             android:visibility="@{item_data.treesCompletedByOther > 0 ? View.VISIBLE : View.GONE}" />
     </RelativeLayout>

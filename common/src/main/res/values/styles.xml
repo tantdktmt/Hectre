@@ -35,6 +35,6 @@
         <item name="android:textSize">@dimen/all_textsize_medium</item>
         <item name="android:textColor">@color/all_red_dark</item>
         <item name="android:background">@drawable/all_text_bg_red_stroke_rounded</item>
-        <item name="android:padding">@dimen/all_margin_padding_tiny_3</item>
+        <item name="android:padding">@dimen/all_margin_padding_tiny_4</item>
     </style>
 </resources>

@@ -38,13 +38,14 @@ object ModelUtil {
                                 false,
                                 this[j].listRow?.map {
                                     RowModel(
-                                        it.id,
+                                        it.id ?: RowModel.ROW_ID_OTHER,
                                         it.label,
                                         it.totalTrees ?: 0,
                                         it.totalTrees ?: 0,
                                         it.treesCompletedByOther ?: 0,
                                         it.otherStaffName,
-                                        it.treesCompletedByStaff ?: 0
+                                        it.treesAssignedToStaff?.toString()
+                                            ?: Constant.DEFAULT_TREES_ASSIGNED_TO_STAFF
                                     )
                                 })
                         )
@@ -73,13 +74,14 @@ object ModelUtil {
                                 true,
                                 this[j].listRow?.map {
                                     RowModel(
-                                        it.id,
+                                        it.id ?: RowModel.ROW_ID_OTHER,
                                         it.label,
                                         it.totalTrees ?: 0,
                                         it.totalTrees ?: 0,
                                         it.treesCompletedByOther ?: 0,
                                         it.otherStaffName,
-                                        it.treesCompletedByStaff ?: 0
+                                        it.treesAssignedToStaff?.toString()
+                                            ?: Constant.DEFAULT_TREES_ASSIGNED_TO_STAFF
                                     )
                                 })
                         )

@@ -30,33 +30,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/layout_trees_info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/all_margin_padding_tiny_1"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_2"
             android:background="@drawable/item_row_info_text_field_bg"
-            android:paddingVertical="@dimen/all_margin_padding_tiny_2"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/all_margin_padding_tiny_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_row_label">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_trees_assigned_to_staff"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:availableTrees="@{item_data.availableTrees}"
-                android:text="@string/job_list_per_hour_text"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/all_margin_padding_tiny_1"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical|end"
+                android:maxLines="1"
+                android:text="@={item_data.treesAssignedToStaff}"
                 android:textColor="@color/all_black"
                 android:textSize="@dimen/all_textsize_large"
-                android:textStyle="bold"
-                android:treesCompletedByStaff="@{item_data.treesCompletedByStaff}" />
-        </FrameLayout>
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_total_trees"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/all_margin_padding_tiny_1"
+                android:layout_weight="1"
+                android:text="@{@string/job_list_total_trees(item_data.totalTrees)}"
+                android:textColor="@color/all_gray_2"
+                android:textSize="@dimen/all_textsize_large"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/all_margin_padding_tiny_1"
+            android:layout_marginTop="@dimen/all_margin_padding_tiny_2"
             android:text="@{@string/job_list_trees_completed_by_other(item_data.otherStaffName, item_data.treesCompletedByOther)}"
             android:textColor="@color/all_black_alpha_80"
             android:textSize="@dimen/all_textsize_medium"

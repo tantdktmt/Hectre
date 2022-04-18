@@ -6,5 +6,5 @@ data class RowEntity(
     val totalTrees: Int?,
     val treesCompletedByOther: Int?,
     val otherStaffName: String?,
-    val treesCompletedByStaff: Int?
+    val treesAssignedToStaff: Int?
 )
