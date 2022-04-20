@@ -186,6 +186,7 @@
                         android:textSize="@dimen/all_textsize_large" />
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_piece_rate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/all_margin_padding_tiny_2"

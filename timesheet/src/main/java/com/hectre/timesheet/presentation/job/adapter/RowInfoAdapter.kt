@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.databinding.ItemRowInfoBinding
 import com.hectre.timesheet.presentation.model.RowModel
-import com.hectre.utility.CharRestrictionTextWatcher
+import com.hectre.utility.TreeInputRestrictionTextWatcher
 import com.hectre.utility.ViewUtil
 
 class RowInfoAdapter : ListAdapter<RowModel, RowInfoAdapter.ViewHolder>(itemDiff) {
@@ -47,14 +47,16 @@ class RowInfoAdapter : ListAdapter<RowModel, RowInfoAdapter.ViewHolder>(itemDiff
     inner class ViewHolder(private val binding: ItemRowInfoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private val textWatcher = CharRestrictionTextWatcher()
+        private val textWatcher = TreeInputRestrictionTextWatcher()
 
         fun bindData(item: RowModel) = with(binding) {
             setVariable(BR.item_data, item)
             executePendingBindings()
             etTreesAssignedToStaff.apply {
                 removeTextChangedListener(textWatcher)
-                addTextChangedListener(textWatcher.attachEditText(this))
+                addTextChangedListener(
+                    textWatcher.setMaxTrees(item.totalTrees).attachEditText(this)
+                )
                 setOnFocusChangeListener { _, hasFocus ->
                     if (hasFocus) {
                         setSelection(text?.length ?: return@setOnFocusChangeListener)

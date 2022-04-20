@@ -6,11 +6,15 @@ import android.widget.EditText
 import com.hectre.config.Constant
 import java.util.regex.Pattern
 
-class CharRestrictionTextWatcher : TextWatcher {
+abstract class CharRestrictionTextWatcher(whitelistRegex: String) : TextWatcher {
 
-    private val pattern = Pattern.compile(Constant.REGEX_NUMBER_ONLY)
-    private var originalText: String? = null
-    private var editText: EditText? = null
+    protected var pattern: Pattern = try {
+        Pattern.compile(whitelistRegex)
+    } catch (e: Exception) {
+        Pattern.compile(Constant.REGEX_ANY)
+    }
+    protected var originalText: String? = null
+    protected var editText: EditText? = null
 
     fun attachEditText(editText: EditText): CharRestrictionTextWatcher {
         this.editText = editText

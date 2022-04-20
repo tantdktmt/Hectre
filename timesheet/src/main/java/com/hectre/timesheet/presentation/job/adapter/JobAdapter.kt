@@ -17,6 +17,7 @@ import com.hectre.timesheet.presentation.model.JobHeaderModel
 import com.hectre.timesheet.presentation.model.RateType
 import com.hectre.timesheet.presentation.model.StaffModel
 import com.hectre.utility.LogUtil
+import com.hectre.utility.RateInputRestrictionTextWatcher
 
 class JobAdapter(
     private val onClickAddMaxTrees: (Int?) -> Unit,
@@ -134,11 +135,25 @@ class JobAdapter(
     private inner class StaffViewHolder(private val binding: ItemStaffBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        private val textWatcher = RateInputRestrictionTextWatcher()
+
         fun bindData(item: StaffModel) = with(binding) {
             setVariable(BR.item_data, item)
 
             tvPieceRate.setSafeOnClickListener {
                 onClickRateType(item.staffId, RateType.PIECE_RATE)
+            }
+
+            etPieceRate.apply {
+                removeTextChangedListener(textWatcher)
+                addTextChangedListener(
+                    textWatcher.attachEditText(this)
+                )
+                setOnFocusChangeListener { _, hasFocus ->
+                    if (hasFocus) {
+                        setSelection(text?.length ?: return@setOnFocusChangeListener)
+                    }
+                }
             }
 
             tvWages.setSafeOnClickListener {
