@@ -1,8 +1,10 @@
 package com.hectre.timesheet.presentation.job
 
+import android.content.Intent
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ascend.money.customer.paymentsdk.presentation.MainActivity
 import com.hectre.common.base.BaseFragment
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.R
@@ -20,10 +22,20 @@ class JobListFragment :
     private val viewModel by viewModels<JobListViewModel>()
     private val jobAdapter by lazy {
         JobAdapter(
-            viewModel::handleAddMaxTrees,
+            ::handleAddMaxTrees,
+//            viewModel::handleAddMaxTrees,
             viewModel::onClickApplyToAll,
             viewModel::onClickRateType
         )
+    }
+
+    fun handleAddMaxTrees(jobId: Int?) {
+        val pIntent = Intent(requireContext(), MainActivity::class.java)
+        pIntent.putExtra(
+            "third_party_code",
+            "lotus"
+        )
+        startActivity(pIntent)
     }
 
     override fun getLayoutId() = R.layout.fragment_job_list

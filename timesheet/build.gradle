@@ -37,6 +37,9 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: '*.aar')
+//    implementation files('libs/paymentsdk-0.0.43-debug.aar')
+
     implementation(project(":common"))
 
     testImplementation 'junit:junit:4.13.2'
