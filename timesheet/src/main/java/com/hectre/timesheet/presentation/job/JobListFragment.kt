@@ -4,13 +4,13 @@ import android.content.Intent
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ascend.money.customer.paymentsdk.presentation.MainActivity
 import com.hectre.common.base.BaseFragment
 import com.hectre.timesheet.BR
 import com.hectre.timesheet.R
 import com.hectre.timesheet.databinding.FragmentJobListBinding
 import com.hectre.timesheet.presentation.job.adapter.JobAdapter
 import com.hectre.utility.LogUtil
+import com.nab.weather.weatherlib.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -30,11 +30,7 @@ class JobListFragment :
     }
 
     fun handleAddMaxTrees(jobId: Int?) {
-        val pIntent = Intent(requireContext(), MainActivity::class.java)
-        pIntent.putExtra(
-            "third_party_code",
-            "lotus"
-        )
+        var pIntent = Intent(requireContext(), MainActivity::class.java)
         startActivity(pIntent)
     }
 

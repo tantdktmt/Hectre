@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:background="@color/job_list_bg">
 
-        <com.hectre.common.widget.Toolbar
+        <com.nab.weather.common.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
