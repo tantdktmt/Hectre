@@ -14,6 +14,8 @@
         <entry key="common/src/main/res/drawable/toolbar_arrow_back_white.xml" value="0.2085" />
         <entry key="common/src/main/res/layout/base_toolbar_layout.xml" value="0.23697916666666666" />
         <entry key="common/src/main/res/layout/toolbar_layout.xml" value="0.23697916666666666" />
+        <entry key="hectrelib/src/main/res/layout/activity_main.xml" value="0.23697916666666666" />
+        <entry key="hectrelib/src/main/res/layout/fragment_second.xml" value="0.23697916666666666" />
         <entry key="timesheet/src/main/res/drawable/item_divider_bg.xml" value="0.1815" />
         <entry key="timesheet/src/main/res/drawable/item_job_header_bg.xml" value="0.1815" />
         <entry key="timesheet/src/main/res/drawable/item_last_staff_item_bg.xml" value="0.1895" />
