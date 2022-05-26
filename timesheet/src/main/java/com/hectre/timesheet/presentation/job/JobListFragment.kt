@@ -1,6 +1,5 @@
 package com.hectre.timesheet.presentation.job
 
-import android.content.Intent
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,7 +9,6 @@ import com.hectre.timesheet.R
 import com.hectre.timesheet.databinding.FragmentJobListBinding
 import com.hectre.timesheet.presentation.job.adapter.JobAdapter
 import com.hectre.utility.LogUtil
-import com.nab.weather.weatherlib.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -30,8 +28,6 @@ class JobListFragment :
     }
 
     fun handleAddMaxTrees(jobId: Int?) {
-        var pIntent = Intent(requireContext(), MainActivity::class.java)
-        startActivity(pIntent)
     }
 
     override fun getLayoutId() = R.layout.fragment_job_list
