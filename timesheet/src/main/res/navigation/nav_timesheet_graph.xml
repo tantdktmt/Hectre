@@ -4,7 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_timesheet_graph"
-    app:startDestination="@id/fragment_job_list">
+    app:startDestination="@id/fragment_one">
+
+    <fragment
+        android:id="@+id/fragment_one"
+        android:name="com.hectre.timesheet.presentation.one.OneFragment"
+        tools:layout="@layout/fragment_one" >
+
+        <action
+            android:id="@+id/go_to_job_list_action"
+            app:destination="@id/fragment_job_list" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_job_list"
