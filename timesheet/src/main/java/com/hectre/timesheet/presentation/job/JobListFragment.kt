@@ -9,9 +9,12 @@ import com.hectre.timesheet.R
 import com.hectre.timesheet.databinding.FragmentJobListBinding
 import com.hectre.timesheet.presentation.job.adapter.JobAdapter
 import com.hectre.utility.LogUtil
+import com.hectre.utility.MainEvent
+import com.hectre.utility.MainEventDispatcher
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class JobListFragment :
@@ -20,10 +23,16 @@ class JobListFragment :
     private val viewModel by viewModels<JobListViewModel>()
     private val jobAdapter by lazy {
         JobAdapter(
-            viewModel::handleAddMaxTrees,
+            ::handleAddMaxTrees,
             viewModel::onClickApplyToAll,
             viewModel::onClickRateType
         )
+    }
+
+    private fun handleAddMaxTrees(jobId: Int?) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            MainEventDispatcher.dispatchEvent(MainEvent.OpenTestScreen)
+        }
     }
 
     override fun getLayoutId() = R.layout.fragment_job_list

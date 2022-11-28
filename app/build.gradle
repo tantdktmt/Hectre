@@ -9,6 +9,43 @@ plugins {
 android {
     compileSdk 32
 
+    flavorDimensions "ice_cream"
+    productFlavors {
+        free {
+            applicationId "com.hectre.free"
+            dimension "ice_cream"
+            versionCode 2
+            versionName "2.0"
+        }
+
+        pro {
+            applicationId "com.hectre.pro"
+            dimension "ice_cream"
+            versionCode 3
+            versionName "3.0"
+        }
+    }
+
+    sourceSets {
+        free {
+            res {
+                srcDirs 'src/free/res'
+            }
+            java {
+                srcDir 'src/free/java'
+            }
+        }
+
+        pro {
+            res {
+                srcDirs 'src/pro/res'
+            }
+            java {
+                srcDirs 'src/free/java'
+            }
+        }
+    }
+
     defaultConfig {
         applicationId "com.hectre"
         minSdk 21

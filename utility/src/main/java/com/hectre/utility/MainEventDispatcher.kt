@@ -17,4 +17,6 @@ sealed class MainEvent {
      *
      */
     class MainDeepLinkNavigate(val deeplink: String) : MainEvent()
+
+    object OpenTestScreen: MainEvent()
 }

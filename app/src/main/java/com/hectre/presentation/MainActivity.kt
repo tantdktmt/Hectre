@@ -1,8 +1,10 @@
 package com.hectre.presentation
 
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
+import com.hectre.BuildConfig
 import com.hectre.R
 import com.hectre.common.base.BaseActivity
 import com.hectre.databinding.ActivityMainBinding
@@ -32,6 +34,11 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() 
             when (it) {
                 is MainEvent.MainDeepLinkNavigate -> {
                     // TODO: navigate to the deeplink
+                }
+                is MainEvent.OpenTestScreen -> {
+                    val flavor = BuildConfig.FLAVOR
+                    Toast.makeText(this, "Open test screen, project flavor = $flavor", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.fragment_test)
                 }
             }
         }.launchIn(lifecycleScope)

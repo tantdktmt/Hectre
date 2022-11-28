@@ -2,8 +2,14 @@
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main_graph"
     app:startDestination="@id/nav_timesheet_graph">
 
     <include app:graph="@navigation/nav_timesheet_graph" />
+
+    <fragment
+        android:id="@+id/fragment_test"
+        android:name="com.hectre.presentation.TestFragment"
+        tools:layout="@layout/fragment_test" />
 </navigation>
