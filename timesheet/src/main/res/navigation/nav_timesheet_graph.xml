@@ -10,4 +10,9 @@
         android:id="@+id/fragment_job_list"
         android:name="com.hectre.timesheet.presentation.job.JobListFragment"
         tools:layout="@layout/fragment_job_list" />
+
+    <fragment
+        android:id="@+id/fragment_test_2"
+        android:name="com.hectre.timesheet.presentation.Test2Fragment"
+        tools:layout="@layout/fragment_test_2" />
 </navigation>

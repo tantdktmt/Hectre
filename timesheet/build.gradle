@@ -9,6 +9,12 @@ plugins {
 android {
     compileSdk 32
 
+    flavorDimensions "ice_cream"
+    productFlavors {
+        register("free")
+        register("pro")
+    }
+
     defaultConfig {
         minSdk 21
         targetSdk 32

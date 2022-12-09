@@ -1,7 +1,9 @@
 package com.hectre.timesheet.presentation.job
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hectre.common.base.BaseFragment
 import com.hectre.timesheet.BR
@@ -12,9 +14,16 @@ import com.hectre.utility.LogUtil
 import com.hectre.utility.MainEvent
 import com.hectre.utility.MainEventDispatcher
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 @AndroidEntryPoint
 class JobListFragment :
@@ -24,9 +33,36 @@ class JobListFragment :
     private val jobAdapter by lazy {
         JobAdapter(
             ::handleAddMaxTrees,
-            viewModel::onClickApplyToAll,
+            ::onClickApplyToAll,
             viewModel::onClickRateType
         )
+    }
+
+    private fun onClickApplyToAll(jobId: Int?, pieceRate: String) {
+//        findNavController().navigate(R.id.fragment_test_2)
+        lifecycleScope.launch {
+            doSomething(5)
+        }
+    }
+
+    suspend fun doSomething(input: Int): Int {
+        return suspendCoroutine { continuation ->
+            if (input == 5) {
+                continuation.resumeWithException(Exception("Input should not be 5"))
+            } else {
+                val result = libFun(input)
+                continuation.resume(result)
+            }
+        }
+    }
+
+    fun libFun(input: Int): Int {
+        var result = 0
+        for (i in 0..input) {
+            Log.d("CHECKING", "Cur = $i")
+            result += i
+        }
+        return result
     }
 
     private fun handleAddMaxTrees(jobId: Int?) {
